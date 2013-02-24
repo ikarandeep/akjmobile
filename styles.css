@@ -16,6 +16,9 @@ border-top: 2px solid white;
 padding-top: 10px;
 }
 
+.smagam .date a{text-decoration:none;
+padding-bottom:0px;}
+
 .date{font-size: 18px;
 font-family: 'Roboto', sans-serif;
 padding-bottom: 10px;

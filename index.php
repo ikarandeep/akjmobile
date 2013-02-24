@@ -40,30 +40,53 @@ function showonlyone(thechosenone) {
 
 <body>
 
-<?php 
-function DOMinnerHTML($element) 
-{ 
-    $innerHTML = ""; 
-    $children = $element->childNodes; 
-    foreach ($children as $child) 
-    { 
-        $tmp_dom = new DOMDocument(); 
-        $tmp_dom->appendChild($tmp_dom->importNode($child, true)); 
-        $innerHTML.=trim($tmp_dom->saveHTML()); 
-    } 
-    return $innerHTML; 
-} 
-?> 
 <div class="programs">
-<div class="pageTitle">AKJ International Programs</div>
 <?php
 require_once 'htmlpurifier/library/HTMLPurifier.auto.php';
-
+require_once 'functions.php';
 #$file = "akj.html";
 #$fp = fopen($file, 'w');
 $ch = curl_init();
 #$target_url = "http://ikarandeep.com/akj/programs.html";
-$target_url = "http://akj.org/skins/one/programs.php";
+
+$country = false;
+$city = false;
+
+if(!empty($_GET['countryid']))
+{
+	$country = true;
+	$countryid = $_GET['countryid'];
+
+}
+if(!empty($_GET['city']))
+{
+	$city = true;
+	$cityid = $_GET['city'];
+
+}
+
+if (($country) && ($city))
+{
+	$target_url = "http://akj.org/skins/one/programs.php?countryid=$countryid&city=$cityid";
+	#$pageTitle="$city Programs"
+
+}
+elseif(($country) && !($city))
+{	
+	$target_url = "http://akj.org/skins/one/programs.php?countryid=$countryid";
+}
+else
+{
+	#get international programs only:
+	#echo '<div class="pageTitle">AKJ International Programs</div>';
+	$target_url = "http://akj.org/skins/one/programs.php";
+}
+
+#echo "target url is $target_url";
+$target_url = str_replace ( ' ', '%20', $target_url);
+#echo "target url is $target_url";
+
+#http://www.akj.org/skins/one/programs.php?countryid=5&city=Connecticut
 #curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
 curl_setopt($ch, CURLOPT_URL,$target_url);
 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -86,98 +109,21 @@ else{
 }
 
 #var_dump(html_entity_decode($html, ENT_COMPAT, 'UTF-8'));
-$htmlTwo = file_get_contents($html);
+#$htmlTwo = file_get_contents($html);
 $config = HTMLPurifier_Config::createDefault();
 $config->set('Core.Encoding', 'UTF-8'); // replace with your encoding
 $config->set('HTML.Doctype', 'HTML 4.01 Transitional'); // replace with your doctype
 $config->set('Core.EscapeNonASCIICharacters', 'true');
 $purifier = new HTMLPurifier($config);
-$clean_html = $purifier->purify($htmlTwo);
+$clean_html = $purifier->purify($html);
 #$new = html_entity_decode("&nbsp;",$clean_html);
-
-$doc = new DOMDocument();
-@$doc->loadHTML($clean_html);
-$tables = $doc->getElementsByTagName('table');
-
-#$td = $doc->getElementsByTagName('td');
-
-foreach($tables as $table)
+if($city)
 {
-	if ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('cellpadding') == "2" && $table->getAttribute('cellspacing') == "0" && $table->getAttribute('width') == "100%")
-	{
-		echo "<div class='aSmagam'>";
-		$td = $table->getElementsByTagName('td');
-		foreach ($td as $tdItem)
-		{
-			if($tdItem->getAttribute('class') == "Chapter")
-				{
-					$smagamName = $tdItem->nodeValue;
-					#$smagamName = $str_replace(' ', '', $smagamName);
-					$uniqueID = rand();
-					
-					echo "<div class='smagam'><a href='javascript:showonlyone(\"$uniqueID\");'>$smagamName</a></div>";
-
-				}
-			if($tdItem->getAttribute('bgcolor')=="#EEEEEE" || $tdItem->getAttribute('bgcolor')=="#DDDDDD")
-			{
-				if ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="100")
-				{
-#<a href="#" class="servicesLink">SERVICES</a>
-#<div class="servicesPanel">
-
-				
-					$date = substr($tdItem->nodeValue,3);
-					#$date = explode("to", $date);
-					#$startDate = $date[0];
-					#$endDate = substr($date[1],4);
-					#$str = "&nbsp;";
-					#str_replace("\xc2\xa0",' ',$str);
-					echo "<div class='date'>$date</div>";
-					#echo "<div class='date'>$startDate to $endDate</div>";
-			
-				}
-				
-				elseif($tdItem->getAttribute('valign')=="top" && $tdItem->hasAttribute('width')==False)
-				{
-				echo "<div class='newboxes' id='$uniqueID'>";
-						#$b = $tdItem->getElementsByTagName('b');
-						$smagamType = $tdItem->firstChild->nodeValue;
-						#$children = $tdItem->childNodes;
- 						echo DOMinnerHTML($tdItem);
- 						#foreach ($children as $childs)
-						#{
-						#	echo $childs->nodeValue;
-						#	echo "<br>";
-						#}
-						#echo $smagamType;
-				#		echo "<br><br>";
-				echo "</div>";
-				}
-				
-				elseif ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="150")		
-				{
-					#$contactInfo = $tdItem->nodeValue;
-				echo "<div class='newboxes' id='$uniqueID'>";
-
-					echo DOMinnerHTML($tdItem);
-				#	echo "<br>";
-				echo "</div>";
-
-				}		
-			}
-			
-		
-		}
-
-	#echo $table->nodeValue;
-	echo "</div>";
-	}
-
-
-
-
-
-
+	parseCity($clean_html);
+}
+else
+{
+	parseMainAndCountry($clean_html);
 }
 ?>
 </div>
