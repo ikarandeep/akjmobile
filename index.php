@@ -41,6 +41,9 @@ function showonlyone(thechosenone) {
 <body>
 
 <div class="programs">
+
+
+
 <?php
 require_once 'htmlpurifier/library/HTMLPurifier.auto.php';
 require_once 'functions.php';
@@ -64,6 +67,12 @@ if(!empty($_GET['city']))
 	$cityid = $_GET['city'];
 
 }
+
+if($countryid == 0)
+{
+	$country = false;
+}
+
 
 if (($country) && ($city))
 {
@@ -117,6 +126,12 @@ $config->set('Core.EscapeNonASCIICharacters', 'true');
 $purifier = new HTMLPurifier($config);
 $clean_html = $purifier->purify($html);
 #$new = html_entity_decode("&nbsp;",$clean_html);
+
+
+#menu will go here
+parseMenu($clean_html);
+
+
 if($city)
 {
 	parseCity($clean_html);
