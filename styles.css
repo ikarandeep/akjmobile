@@ -1,0 +1,38 @@
+body{
+background-color: #22486e;
+color: white;
+font-family: 'Titillium Web', sans-serif;
+}
+
+a{color: #ffcd67;}
+a:hover{color:white;}
+
+.smagam{font-size: 20px;
+font-family: 'Fjalla One', sans-serif;
+letter-spacing: .1px;
+padding-bottom: 10px;
+margin-top: 0px;
+border-top: 2px solid white;
+padding-top: 10px;
+}
+
+.date{font-size: 18px;
+font-family: 'Roboto', sans-serif;
+padding-bottom: 10px;
+}
+.newboxes{color: white;
+display: none;
+padding-bottom: 10px;}
+
+/*
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Titillium Web', sans-serif;
+*/
+
+.programs{width: 300px;}
+
+.pageTitle{font-size:26px;
+font-family: 'Fjalla One', sans-serif;}
+
+.aSmagam{width:100%;}
