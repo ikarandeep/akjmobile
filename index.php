@@ -59,8 +59,8 @@ function DOMinnerHTML($element)
 <?php
 require_once 'htmlpurifier/library/HTMLPurifier.auto.php';
 
-$file = "akj.html";
-$fp = fopen($file, 'w');
+#$file = "akj.html";
+#$fp = fopen($file, 'w');
 $ch = curl_init();
 #$target_url = "http://ikarandeep.com/akj/programs.html";
 $target_url = "http://akj.org/skins/one/programs.php";
@@ -73,7 +73,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-curl_setopt($ch, CURLOPT_FILE, $fp);
+#curl_setopt($ch, CURLOPT_FILE, $fp);
 $html = curl_exec($ch);
 if (!$html) {
 	echo "<br />cURL error number:" .curl_errno($ch);
@@ -82,11 +82,11 @@ if (!$html) {
 }
 else{
 	curl_close($ch);
-	fclose($fp);
+#	fclose($fp);
 }
 
 #var_dump(html_entity_decode($html, ENT_COMPAT, 'UTF-8'));
-$htmlTwo = file_get_contents($file);
+$htmlTwo = file_get_contents($html);
 $config = HTMLPurifier_Config::createDefault();
 $config->set('Core.Encoding', 'UTF-8'); // replace with your encoding
 $config->set('HTML.Doctype', 'HTML 4.01 Transitional'); // replace with your doctype
