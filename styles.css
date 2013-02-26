@@ -1,11 +1,53 @@
 body{
-background-color: #22486e;
-color: white;
+background-color: white;
+/*background-color: #22486e;*/
 font-family: 'Titillium Web', sans-serif;
+color: black;
+text-shadow: #ccc 0.1em 0.1em 0.1em;
+
 }
+
+/*begin top bar*/
+.top_bar{
+font-family: 'Yanone Kaffeesatz', sans-serif;
+font-weight: 100;
+font-size:28px;
+letter-spacing: 2px;
+color: white;
+padding-top:10px;
+padding-bottom: 10px;
+padding-left: 10px;
+/*
+margin: 0;
+position: fixed;
+left:0;
+top:0;
+width:100%;
+padding: 10px;
+*/
+}
+
+/*begin menu */
+
+
+/*begin footer*/
+.footer{font-size:10px;
+color: #ccc;
+letter-spacing: 2px;
+width:100%;
+margin: 0;
+position: fixed;
+bottom:0;
+left: 0;
+padding: 10px;
+}
+
 
 a{color: #ffcd67;}
 a:hover{color:white;}
+
+
+
 
 .smagam{font-size: 20px;
 font-family: 'Fjalla One', sans-serif;
@@ -23,19 +65,53 @@ padding-bottom:0px;}
 font-family: 'Roboto', sans-serif;
 padding-bottom: 10px;
 }
-.newboxes{color: white;
+.newboxes{color: black;
 display: none;
-padding-bottom: 10px;}
+padding-bottom: 10px;
+ }
+ 
+ .newboxes p{font-size: 14px;
+ padding-top: 10px;
+ font-weight: normal;
+font-family: 'Titillium Web', sans-serif;}
+ 
+ .newboxes b{
+font-family: 'Titillium Web', sans-serif;}
+ 
+ /*modifying theme*/
+.ui-body-c .ui-link {
+  /*color: #ffcd67;*/
+  color: #22486e;
+  font-weight: normal;
+}
+.ui-body-c .ui-link:hover{
+color: #ffcd67;
+font-weight: normal;
+}
 
+.ui-body-c .ui-link:visited{
+color: #22486e;
+font-weight: normal;
+}
+.ui-body-c .ui-link:visited:hover{
+color: #ffcd67;
+font-weight: normal;
+}
+ 
+.ui-li-desc{
+white-space:normal;
+}
 .mainMenu {width:300px;
 padding-bottom: 10px;
 text-transform: uppercase;
-font-size:14px;
-letter-spacing: -.5px;}
+font-size:10px;
+letter-spacing: -.5px;
+margin-left: -15px;
+margin-bottom: 10px;}
 .mainMenu ul {margin:0;
 padding: 0;
 list-style-type: none;
-text-align:center;}
+text-align:left;}
 .mainMenu ul li {display: inline;
 padding: 5px;}
 .mainMenu ul li a{text-decoration: none;
@@ -48,7 +124,7 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Titillium Web', sans-serif;
 */
 
-.programs{width: 300px;}
+/*.programs{width: 300px;}*/
 
 .pageTitle{font-size:26px;
 font-family: 'Fjalla One', sans-serif;}

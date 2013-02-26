@@ -23,7 +23,7 @@ foreach($tables as $table)
 {
 	if ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('cellpadding') == "2" && $table->getAttribute('cellspacing') == "0" && $table->getAttribute('width') == "100%")
 	{
-		echo "<div class='aSmagam'>";
+		echo "<li><div class='aSmagam'>";
 		$td = $table->getElementsByTagName('td');
 		foreach ($td as $tdItem)
 		{
@@ -57,29 +57,20 @@ foreach($tables as $table)
 				
 				elseif($tdItem->getAttribute('valign')=="top" && $tdItem->hasAttribute('width')==False)
 				{
-				echo "<div class='newboxes' id='$uniqueID'>";
-						#$b = $tdItem->getElementsByTagName('b');
+				echo "<div class='newboxes' id='$uniqueID'><p>";
 						$smagamType = $tdItem->firstChild->nodeValue;
-						#$children = $tdItem->childNodes;
  						echo DOMinnerHTML($tdItem);
- 						#foreach ($children as $childs)
-						#{
-						#	echo $childs->nodeValue;
-						#	echo "<br>";
-						#}
-						#echo $smagamType;
-				#		echo "<br><br>";
-				echo "</div>";
+				echo "</p></div>";
 				}
 				
 				elseif ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="150")		
 				{
 					#$contactInfo = $tdItem->nodeValue;
-				echo "<div class='newboxes' id='$uniqueID'>";
+				echo "<div class='newboxes' id='$uniqueID'><p>";
 
 					echo DOMinnerHTML($tdItem);
 				#	echo "<br>";
-				echo "</div>";
+				echo "</p></div>";
 
 				}		
 			}
@@ -88,7 +79,7 @@ foreach($tables as $table)
 		}
 
 	#echo $table->nodeValue;
-	echo "</div>";
+	echo "</div></li>";
 	}
 }
 }
@@ -106,7 +97,7 @@ function parseCity($clean_html)
 		if($titleTd->getAttribute('class') == "Chapter")
 		{
 			$smagamName = $titleTd->nodeValue;
-			echo "<div class='pageTitle'>$smagamName</a></div>";
+			echo "<li><div class='pageTitle'>$smagamName</a></div>";
 			
 		}
 	}		
@@ -185,22 +176,22 @@ function parseCity($clean_html)
 						
 						elseif($tdItem->getAttribute('valign')=="top" && $tdItem->hasAttribute('width')==False)
 						{
-							echo "<div class='newboxes' id='$uniqueID'>";
+							echo "<div class='newboxes' id='$uniqueID'><p>";
 							$smagamType = $tdItem->firstChild->nodeValue;
 							echo DOMinnerHTML($tdItem);
-							echo "</div>";
+							echo "</p></div>";
 						}
 						
 						elseif ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="150")		
 						{
-							echo "<div class='newboxes' id='$uniqueID'>";
+							echo "<div class='newboxes' id='$uniqueID'><p>";
 							echo DOMinnerHTML($tdItem);
-							echo "</div>";
+							echo "</p></div>";
 		
 						}		
 					}
 				}
-				echo "</div>";
+				echo "</div></li>";
 			}
 		}
 	}
@@ -262,7 +253,7 @@ function parseMenu($clean_html)
 	$divs = $doc->getElementsByTagName('div');
 	echo "<div class='mainMenu'>";
 	echo "<ul>";
-	echo "<li><a href='?countryid=0'>ALL INTERNATIONAL</a></li>";
+	echo "<li><a href='?p=programs&countryid=0'>ALL INTERNATIONAL</a></li>";
 	echo "<br>";
 	foreach($divs as $div)
 	{
@@ -274,7 +265,7 @@ function parseMenu($clean_html)
 			{
 	
 				$eachCountry = $li->nodeValue;
-				echo "<li><a href='?countryid=$i'>$eachCountry</a></li>";
+				echo "<li><a href='?p=programs&countryid=$i'>$eachCountry</a></li>";
 				if ($i == 5)
 				{
 				echo "<br>";
@@ -310,8 +301,132 @@ function parseMenu($clean_html)
 
 
 }
+function parseKeertan($clean_html)
+{
 
+	$doc = new DOMDocument();
+	@$doc->loadHTML($clean_html);
+	$tables = $doc->getElementsByTagName('table');
+	$tdsForTitle = $doc->getElementsByTagName('td');
+	$i = 0;
+	foreach($tdsForTitle as $titleTd)
+	{
+		if($titleTd->getAttribute('class') == "Header")
+		{
+			$smagamName = $titleTd->nodeValue;
+			echo "<div class='pageTitle'>$smagamName</a></div>";
+			
+		}
+	}		
 
+	foreach($tables as $table)
+	{
+	#table bgcolor="#ffcc66" border="0" cellpadding="3" cellspacing="1" width="100%
+		
+		if ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('border')=="0" && $table->getAttribute('cellpadding') == "3" && $table->getAttribute('cellspacing') == "1" && $table->getAttribute('width') == "100%")
+		{
+			$tds = $table->getElementsByTagName('td');
+			foreach ($tds as $td)
+			{
+				if ($td->getAttribute('colspan')=="6" && $td->getAttribute('align')=="center")
+				{
+					$fonts = $table->getElementsByTagName('font');
+					foreach ($fonts as $font)
+					{
+						if($font->getAttribute('class')=="title")
+						{
+							$programDay = $font->nodeValue;
+							echo "$programDay<br>";
+						}
+						elseif($font->getAttribute('class')=="subtitle")
+						{
+							$programType = $font->nodeValue;
+							echo "$programType<br>";
+								
+						}
+					}
+				}
+				elseif($td->getAttribute('class')=="DateTime")
+				{
+						$time = $td->nodeValue;
+						$counter = 1;
+						echo "$time | ";
+						
+				}
+				elseif($td->getAttribute('class')=="Secondary")
+				{
+						if($counter == 1 || $counter == 3)
+						{
+							echo DOMinnerHTML($td);
+						}
+						$counter = $counter + 1;
+						if ($counter == 4)
+						{
+						echo "<br>";
+						
+						}
+				}
+
+			
+				
+				
+				
+				
+			}
+		}
+		elseif ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('cellpadding') == "1" && $table->getAttribute('cellspacing') == "0" && $table->getAttribute('width') == "100%")
+		{
+		
+			if ($i == 0)
+			{
+				$i = 1;
+			}		
+			else
+			{
+		
+				echo "<div class='aSmagam'>";
+				
+				# check to see if it has a child table with cellpadding2
+				
+				$td = $table->getElementsByTagName('td');
+				foreach ($td as $tdItem)
+				{
+					
+					if($tdItem->getAttribute('bgcolor')=="#EEEEEE" || $tdItem->getAttribute('bgcolor')=="#DDDDDD")
+					{
+						if ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="100")
+						{	
+							$date = substr($tdItem->nodeValue,3);
+							$date = explode("to", $date);
+							$startDate = $date[0];
+							$endDate = substr($date[1],4);
+							$uniqueID = rand();
+							echo "<div class='smagam'><div class='date'><a href='javascript:showonlyone(\"$uniqueID\");'>$startDate to $endDate</a></div></div>";
+					
+						}
+						
+						elseif($tdItem->getAttribute('valign')=="top" && $tdItem->hasAttribute('width')==False)
+						{
+							echo "<div class='newboxes' id='$uniqueID'><p>";
+							$smagamType = $tdItem->firstChild->nodeValue;
+							echo DOMinnerHTML($tdItem);
+							echo "</p></div>";
+						}
+						
+						elseif ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="150")		
+						{
+							echo "<div class='newboxes' id='$uniqueID'><p>";
+							echo DOMinnerHTML($tdItem);
+							echo "</p></div>";
+		
+						}		
+					}
+				}
+				echo "</div>";
+			}
+		}
+	}
+}
 
 
 
