@@ -301,6 +301,138 @@ function parseMenu($clean_html)
 
 
 }
+
+
+
+function parseKeertanMenu($clean_html)
+{
+	$doc = new DOMDocument();
+	@$doc->loadHTML($clean_html);
+	$uls = $doc->getElementsByTagName('ul');
+	echo "<div class='mainMenu'>";
+	echo "<ul data-role='listview' data-filter='true'>";
+	$counter = 0;
+	foreach($uls as $ul)
+	{
+		
+		if($ul->getAttribute('class')=="ddsubmenustyle")
+		{
+			#echo DOMinnerHTML($ul);
+			#lets get each LI now 
+			$lis = $ul->getElementsByTagName('li');
+			$counter = 0;
+			foreach ($lis as $li)
+			{
+				$prevCity = false;
+				$prevMonth = true;
+				$prevYear = false;
+				
+				$string = $li->nodeValue;
+				$array = preg_split('/\n/',$string);
+				foreach($array as $item)
+				{
+					# if a 4 digit number -> year & prevCity == true
+					#prevMonth = false;
+					#prevCity = false;
+					#prevYear = true;
+					$months = array("January","February","March","April","May","June","July","August","September","October","November","December");
+					if(is_numeric($item) && strlen($item)==4)
+					{
+					
+						$prevMonth = false;
+						$prevCity = false;
+						$prevYear = true;
+						$city = $city;
+						$year = $item;
+					
+					}
+									
+					# if a month -> month && prevYear == True
+					#prevYear == false;
+					#prevCity = false;
+					#prevMonth = true
+					
+					elseif(in_array($item,$months))
+					{
+						
+						$prevMonth = true;
+						$prevCity = false;
+						$prevYear = false;
+						$city = $city;
+						$month = $item;
+						echo "$city $year $month<br>";
+					
+					}
+					
+				# else must be city & prevCity = false & prevMonth = true;
+				# prevCity = true;
+				# prevMonth = false;
+
+					
+					else
+					{
+						$prevMonth = false;
+						$prevCity = true;
+						$prevYear = false;	
+						$city = $item;	
+						
+					}
+
+				}
+			
+			}
+			
+			
+		$counter = $counter + 1;
+			
+		}
+	
+	}
+
+	echo "</ul>";
+	echo "</div>";
+#<div id="ddtopmenubar" class="mattblackmenu">
+
+#</div>	
+#<ul style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;" id="s0" class="ddsubmenustyle">	
+#	<li><a href="#">Atlanta<img class="rightarrowpointer" style="width: 12px; height: 12px;" src="ddlevelsfiles/arrow-right.gif"></a>
+#		<ul style="left: 0px; top: 0px; visibility: hidden;">
+#			<li><a href="#">2012<img class="rightarrowpointer" style="width: 12px; height: 12px;" src="ddlevelsfiles/arrow-right.gif"></a>
+#				<ul style="left: 0px; top: 0px; visibility: hidden;">
+#					<li><a href="keertan.php?id=379">June</a></li>
+#				</ul>
+#			</li>
+#			<li><a href="#">2010<img class="rightarrowpointer" style="width: 12px; height: 12px;" src="ddlevelsfiles/arrow-right.gif"></a>
+#				<ul style="left: 0px; top: 0px; visibility: hidden;">
+#					<li><a href="keertan.php?id=248">January</a></li>
+#				</ul>
+#			</li>
+#			<li><a href="#">2008<img class="rightarrowpointer" style="width: 12px; height: 12px;" src="ddlevelsfiles/arrow-right.gif"></a>
+#				<ul style="left: 0px; top: 0px; visibility: hidden;">
+#					<li><a href="keertan.php?id=170">June</a></li>
+#				</ul>
+#			</li>
+#		</ul>
+#	</li>
+
+#<ul>
+#<li rel="s0"><a href="#">Canada<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li rel="s1"><a href="#">India<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li rel="s2"><a class="" href="#">Europe<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li rel="s3"><a class="" href="#">U.K.<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li rel="s4"><a class="" href="#">U.S.A.<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li rel="s5"><a href="#">Australia<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li rel="s6"><a href="#">N.Z.<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li rel="s7"><a href="#">Other<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
+#<li><a href="search.php">Search</a></li>
+#<li><a href="shabadSearch.php">Shabad Search</a></li>
+#</ul>
+
+
+}
+
+
+
 function parseKeertan($clean_html)
 {
 
@@ -350,21 +482,34 @@ function parseKeertan($clean_html)
 				{
 						$time = $td->nodeValue;
 						$counter = 1;
-						echo "$time | ";
+						echo "<div class='keertanUrl'> $time |";
 						
 				}
 				elseif($td->getAttribute('class')=="Secondary")
 				{
-						if($counter == 1 || $counter == 3)
-						{
-							echo DOMinnerHTML($td);
+					
+					if ($td->hasAttribute('align')==False && $td->hasAttribute('width')==False)
+					{
+						$keertani = $td->nodeValue;
+
+					}
+					else
+					{
+						# strip url
+						$as = $td->getElementsByTagName('a');
+						foreach($as as $a)
+						{	
+							$url = $a->getAttribute('href');
+							echo "<a href=\"$url\">$keertani</a></div><br>";
 						}
-						$counter = $counter + 1;
-						if ($counter == 4)
-						{
-						echo "<br>";
-						
-						}
+					}	
+			
+			#<td class="DateTime" align="center" bgcolor="#DDDDDD" width="35">&nbsp;00:25:32&nbsp;</td>
+          	#<td class="Secondary" bgcolor="#DDDDDD">&nbsp;&nbsp;Bhai Gurpreet Singh Jee (Fremont)&nbsp;&nbsp;<font class="NewFlag">UPDATED</font></td> 
+          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35">-          </td>
+          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35"><a href="http://www.akji.org.uk/multimedia/BayArea/2011/201102baya030wed.mp3"><img src="images/mp3.gif" alt="MP3" height="20" border="0" width="25"></a>          </td>
+          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35">-          </td>
+          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35">-          </td>
 				}
 
 			
@@ -372,57 +517,6 @@ function parseKeertan($clean_html)
 				
 				
 				
-			}
-		}
-		elseif ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('cellpadding') == "1" && $table->getAttribute('cellspacing') == "0" && $table->getAttribute('width') == "100%")
-		{
-		
-			if ($i == 0)
-			{
-				$i = 1;
-			}		
-			else
-			{
-		
-				echo "<div class='aSmagam'>";
-				
-				# check to see if it has a child table with cellpadding2
-				
-				$td = $table->getElementsByTagName('td');
-				foreach ($td as $tdItem)
-				{
-					
-					if($tdItem->getAttribute('bgcolor')=="#EEEEEE" || $tdItem->getAttribute('bgcolor')=="#DDDDDD")
-					{
-						if ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="100")
-						{	
-							$date = substr($tdItem->nodeValue,3);
-							$date = explode("to", $date);
-							$startDate = $date[0];
-							$endDate = substr($date[1],4);
-							$uniqueID = rand();
-							echo "<div class='smagam'><div class='date'><a href='javascript:showonlyone(\"$uniqueID\");'>$startDate to $endDate</a></div></div>";
-					
-						}
-						
-						elseif($tdItem->getAttribute('valign')=="top" && $tdItem->hasAttribute('width')==False)
-						{
-							echo "<div class='newboxes' id='$uniqueID'><p>";
-							$smagamType = $tdItem->firstChild->nodeValue;
-							echo DOMinnerHTML($tdItem);
-							echo "</p></div>";
-						}
-						
-						elseif ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="150")		
-						{
-							echo "<div class='newboxes' id='$uniqueID'><p>";
-							echo DOMinnerHTML($tdItem);
-							echo "</p></div>";
-		
-						}		
-					}
-				}
-				echo "</div>";
 			}
 		}
 	}
