@@ -328,26 +328,77 @@ function parseKeertanMenu($clean_html)
 			foreach ($lis as $li)
 			{
 			
-				$prevCity = false;
-				$prevMonth = true;
-				$prevYear = false;
-				echo "<!--print start<br>-->";
+				#echo "<li>print start</li>";
 				$string = $li->nodeValue;
 				$as = $li->getElementsByTagName('a');
 			
 				
 				
 				$array = preg_split('/\n/',trim($string));
+				$item = $array[0];
+				$months = array("January","February","March","April","May","June","July","August","September","October","November","December","Unknown");
+				if(is_numeric($item) && strlen($item)==4)
+				{
+					$year = $item;
+				}
+				elseif(in_array($item,$months))
+				{
+					$month = $item;
+					foreach($as as $a)
+					{
+						if($a->hasAttribute('href')==true)
+						{
+							$url = $a->getAttribute('href');
+							$urlArray = explode("=",$url);
+							$idNumber = $urlArray[1];
+							$url_set = true;
+						}
+					}
+					$smagamInfo = "$city $year $month";
+					echo "<li><a href=\"?p=keertan&id=$idNumber\">$smagamInfo</a>";
+					echo "<div class='hidden'>$year $city $year $month $city $year $month $month $year $month $city</div></li>";
+				}
+				else
+				{
+					$city = $item;
+					
+				}
 
-				foreach($as as $a)
+
+				# in first li: first item will be city
+				# in second li first item should be year
+				# in third li first item should month
+				# in fourth li first item should be month
+				# in fifth li first item will be city
+				# in sixth li first item will be year
+				# in seventh li first item will be month
+				# in 8th li first item will be city
+				# 9 = year
+				# 10 = month
+				# 11 = month
+				# 12 = month
+				# 13 = year
+				# 14 = month
+				# 15 = month
+				# 16 = city
+				
+				# patterns: City will always come after a month
+				# a month will always come after a year
+				# a year can come after month or city but its always a date....
+				
+				
+
+				
+
+/*				foreach($as as $a)
 				{
 					if($a->hasAttribute('href')==true)
 					{
 						$url = $a->getAttribute('href');
 						$urlArray = explode("=",$url);
 						$idNumber = $urlArray[1];
-						echo "$idNumber";
-					
+						#echo "$idNumber";
+						$url_set = true;
 					}
 					
 				
@@ -386,12 +437,15 @@ function parseKeertanMenu($clean_html)
 							$month = $item;
 							$i = $i + 1;
 							$smagamInfo = "$city $year $month";
-							
-							if(!(in_array($smagamInfo,$smagamNameYearMonth)))
+							if($url_set)
 							{
-								array_push($smagamNameYearMonth,$smagamInfo);
-								echo "<li><a href=\"?p=keertan&id=$idNumber\">$smagamInfo</a></li>";
-	
+								if(!(in_array($smagamInfo,$smagamNameYearMonth)))
+								{
+									array_push($smagamNameYearMonth,$smagamInfo);
+									echo "<li>$idNumber</li>";
+									echo "<li><a href=\"?p=keertan&id=$idNumber\">$smagamInfo</a></li>";
+									$url_set = false;
+								}
 							}
 	
 						}
@@ -420,7 +474,7 @@ function parseKeertanMenu($clean_html)
 
 					}
 								echo "<!--<br>print end<br>-->";
-				}
+				}*/
 			}
 			
 			
@@ -487,7 +541,7 @@ function parseKeertan($clean_html)
 		if($titleTd->getAttribute('class') == "Header")
 		{
 			$smagamName = $titleTd->nodeValue;
-			echo "<div class='pageTitle'>$smagamName</a></div>";
+			echo "<div class='pageTitle'>$smagamName</div>";
 			
 		}
 	}		
@@ -499,8 +553,10 @@ function parseKeertan($clean_html)
 		if ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('border')=="0" && $table->getAttribute('cellpadding') == "3" && $table->getAttribute('cellspacing') == "1" && $table->getAttribute('width') == "100%")
 		{
 			$tds = $table->getElementsByTagName('td');
+
 			foreach ($tds as $td)
 			{
+
 				if ($td->getAttribute('colspan')=="6" && $td->getAttribute('align')=="center")
 				{
 					$fonts = $table->getElementsByTagName('font');
@@ -509,12 +565,12 @@ function parseKeertan($clean_html)
 						if($font->getAttribute('class')=="title")
 						{
 							$programDay = $font->nodeValue;
-							echo "$programDay<br>";
+							echo "<div class='program_day'>$programDay</div>";
 						}
 						elseif($font->getAttribute('class')=="subtitle")
 						{
 							$programType = $font->nodeValue;
-							echo "$programType<br>";
+							echo "<div class='program_type'>$programType</div>";
 								
 						}
 					}
@@ -523,7 +579,6 @@ function parseKeertan($clean_html)
 				{
 						$time = $td->nodeValue;
 						$counter = 1;
-						echo "<div class='keertanUrl'> $time |";
 						
 				}
 				elseif($td->getAttribute('class')=="Secondary")
@@ -532,7 +587,7 @@ function parseKeertan($clean_html)
 					if ($td->hasAttribute('align')==False && $td->hasAttribute('width')==False)
 					{
 						$keertani = $td->nodeValue;
-
+						$mp3counter = 0;
 					}
 					else
 					{
@@ -540,9 +595,14 @@ function parseKeertan($clean_html)
 						$as = $td->getElementsByTagName('a');
 						foreach($as as $a)
 						{	
-							$url = $a->getAttribute('href');
-							echo "<a href=\"$url\">$keertani</a></div><br>";
+							if ($mp3counter == 1)
+							{
+								$url = $a->getAttribute('href');
+								echo "<div class='keertanUrl'><div class='time'>$time</div><div class='track'><a href=\"$url\">$keertani</a></div></div>";
+							}
 						}
+							$mp3counter = $mp3counter + 1;
+
 					}	
 			
 			#<td class="DateTime" align="center" bgcolor="#DDDDDD" width="35">&nbsp;00:25:32&nbsp;</td>

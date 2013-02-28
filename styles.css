@@ -9,14 +9,15 @@ text-shadow: #ccc 0.1em 0.1em 0.1em;
 
 /*begin top bar*/
 .top_bar{
-font-family: 'Yanone Kaffeesatz', sans-serif;
+/*font-family: 'Yanone Kaffeesatz', sans-serif;*/
+font-family: 'Fjalla One', sans-serif;
 font-weight: 100;
 font-size:28px;
 letter-spacing: 2px;
 color: white;
 padding-top:10px;
 padding-bottom: 10px;
-padding-left: 10px;
+padding-left: 20px;
 /*
 margin: 0;
 position: fixed;
@@ -79,8 +80,12 @@ font-family: 'Titillium Web', sans-serif;}
 font-family: 'Titillium Web', sans-serif;}
  
  
- 
- .keertanUrl a{text-decoration:none;}
+ .keertanUrl{
+width: 100%;
+height: 30px;
+font-size: 14px;}
+ .keertanUrl a{text-decoration:none;
+ }
  
  /*modifying theme*/
 .ui-body-c .ui-link {
@@ -128,9 +133,36 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Titillium Web', sans-serif;
 */
 
+.keertanPage{
+font-family: 'Fjalla One', sans-serif;
+}
+.program_day{
+font-size:20px;
+  background-color: #ffcd67;
+  color: #22486e;
+  margin-bottom: 5px;
+}
+
+.program_type{
+font-size: 16px;
+color: #666;
+margin-bottom: 10px;}
+
+.hidden{display:none;}
+
 /*.programs{width: 300px;}*/
 
 .pageTitle{font-size:26px;
-font-family: 'Fjalla One', sans-serif;}
-
+}
 .aSmagam{width:100%;}
+
+
+.time{float: left;
+width:24%;}
+.track{float: left;
+width: 74%;}
+
+
+
+
+

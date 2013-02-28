@@ -22,7 +22,7 @@ echo '
 	<article data-role="content">
 		<ul data-role="listview">
 			<li><a href="?p=programs"><h1>PROGRAMS</h1></a></li>
-			<li><a href="?p=keertanSoon"><h1>KEERTAN</h1></a></li>
+			<li><a href="?p=keertan"><h1>KEERTAN</h1></a></li>
 		</ul>
 	</article>	
 	';

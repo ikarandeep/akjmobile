@@ -29,7 +29,6 @@ function showonlyone(thechosenone) {
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
   <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script> 
 <!--end jquery mobile-->
-<link rel="stylesheet" type="text/css" href="styles.css">
 <link href='http://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Titillium+Web' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <title>AKJ Mobile</title>
