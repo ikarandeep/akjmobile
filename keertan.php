@@ -12,6 +12,7 @@ if(!empty($_GET['id']))
 }
 else
 {
+	$home = true;
 	$target_url = "http://akj.org/skins/one/keertan.php";
 }
 curl_setopt($ch, CURLOPT_URL,$target_url);
@@ -39,9 +40,14 @@ $config->set('HTML.Doctype', 'HTML 4.01 Transitional'); // replace with your doc
 $config->set('Core.EscapeNonASCIICharacters', 'true');
 $purifier = new HTMLPurifier($config);
 $clean_html = $purifier->purify($html);
-parseKeertanMenu($clean_html);
-parseKeertan($clean_html);
-
+if($home)
+{
+	parseKeertanMenu($clean_html);
+}
+else
+{
+	parseKeertan($clean_html);
+}
 ?>
 </div>
 </article>

@@ -309,77 +309,118 @@ function parseKeertanMenu($clean_html)
 	$doc = new DOMDocument();
 	@$doc->loadHTML($clean_html);
 	$uls = $doc->getElementsByTagName('ul');
-	echo "<div class='mainMenu'>";
+	echo "<div class='keertanMenu'>";
 	echo "<ul data-role='listview' data-filter='true'>";
-	$counter = 0;
+	$i = 0;
+	
+	$smagamNameYearMonth = array();
+	
+
 	foreach($uls as $ul)
 	{
+		
 		
 		if($ul->getAttribute('class')=="ddsubmenustyle")
 		{
 			#echo DOMinnerHTML($ul);
 			#lets get each LI now 
 			$lis = $ul->getElementsByTagName('li');
-			$counter = 0;
 			foreach ($lis as $li)
 			{
+			
 				$prevCity = false;
 				$prevMonth = true;
 				$prevYear = false;
-				
+				echo "<!--print start<br>-->";
 				$string = $li->nodeValue;
-				$array = preg_split('/\n/',$string);
-				foreach($array as $item)
-				{
-					# if a 4 digit number -> year & prevCity == true
-					#prevMonth = false;
-					#prevCity = false;
-					#prevYear = true;
-					$months = array("January","February","March","April","May","June","July","August","September","October","November","December");
-					if(is_numeric($item) && strlen($item)==4)
-					{
-					
-						$prevMonth = false;
-						$prevCity = false;
-						$prevYear = true;
-						$city = $city;
-						$year = $item;
-					
-					}
-									
-					# if a month -> month && prevYear == True
-					#prevYear == false;
-					#prevCity = false;
-					#prevMonth = true
-					
-					elseif(in_array($item,$months))
-					{
-						
-						$prevMonth = true;
-						$prevCity = false;
-						$prevYear = false;
-						$city = $city;
-						$month = $item;
-						echo "$city $year $month<br>";
-					
-					}
-					
-				# else must be city & prevCity = false & prevMonth = true;
-				# prevCity = true;
-				# prevMonth = false;
-
-					
-					else
-					{
-						$prevMonth = false;
-						$prevCity = true;
-						$prevYear = false;	
-						$city = $item;	
-						
-					}
-
-				}
+				$as = $li->getElementsByTagName('a');
 			
+				
+				
+				$array = preg_split('/\n/',trim($string));
+
+				foreach($as as $a)
+				{
+					if($a->hasAttribute('href')==true)
+					{
+						$url = $a->getAttribute('href');
+						$urlArray = explode("=",$url);
+						$idNumber = $urlArray[1];
+						echo "$idNumber";
+					
+					}
+					
+				
+				
+					foreach($array as $item)
+					{
+						# if a 4 digit number -> year & prevCity == true
+						#prevMonth = false;
+						#prevCity = false;
+						#prevYear = true;
+						#$i = 0;
+						$months = array("January","February","March","April","May","June","July","August","September","October","November","December","Unknown");
+						if(is_numeric($item) && strlen($item)==4)
+						{
+						
+							$prevMonth = false;
+							$prevCity = false;
+							$prevYear = true;
+							$year = $item;
+							$i = $i + 1;
+							echo "<!--setting year $year $i<br>-->";
+						
+						}
+										
+						# if a month -> month && prevYear == True
+						#prevYear == false;
+						#prevCity = false;
+						#prevMonth = true
+						
+						elseif(in_array($item,$months))
+						{
+							
+							$prevMonth = true;
+							$prevCity = false;
+							$prevYear = false;
+							$month = $item;
+							$i = $i + 1;
+							$smagamInfo = "$city $year $month";
+							
+							if(!(in_array($smagamInfo,$smagamNameYearMonth)))
+							{
+								array_push($smagamNameYearMonth,$smagamInfo);
+								echo "<li><a href=\"?p=keertan&id=$idNumber\">$smagamInfo</a></li>";
+	
+							}
+	
+						}
+						
+					# else must be city & prevCity = false & prevMonth = true;
+					# prevCity = true;
+					# prevMonth = false;
+	
+						
+						elseif($prevMonth == true)
+						{
+							$prevMonth = false;
+							$prevCity = true;
+							$prevYear = false;	
+							$city = $item;	
+							$i = $i + 1;
+							if($city == "")
+							{
+								$city = $currentCity;
+
+							}
+							$currentCity = $city;
+							echo "<!--setting city $city $currentCity $i<br>-->";
+							
+						}
+
+					}
+								echo "<!--<br>print end<br>-->";
+				}
 			}
 			
 			
