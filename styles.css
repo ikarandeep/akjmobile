@@ -14,10 +14,12 @@ font-family: 'Fjalla One', sans-serif;
 font-weight: 100;
 font-size:28px;
 letter-spacing: 2px;
-color: white;
+color: #ffcd67;
 padding-top:10px;
 padding-bottom: 10px;
 padding-left: 20px;
+  text-shadow: black 0.05em 0.05em 0.05em;
+
 /*
 margin: 0;
 position: fixed;
@@ -110,6 +112,14 @@ font-weight: normal;
 .ui-li-desc{
 white-space:normal;
 }
+
+.ui-li-heading
+{
+font-family: 'Titillium Web', sans-serif;
+font-size: 30px;
+}
+
+
 .mainMenu {width:300px;
 padding-bottom: 10px;
 text-transform: uppercase;
@@ -161,6 +171,7 @@ margin-bottom: 10px;}
 width:24%;}
 .track{float: left;
 width: 74%;}
+
 
 
 

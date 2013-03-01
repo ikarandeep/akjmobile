@@ -9,7 +9,7 @@ www.ikarandeep.com
 <head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10.0">
 <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png" />
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">

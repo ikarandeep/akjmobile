@@ -196,111 +196,99 @@ function parseCity($clean_html)
 		}
 	}
 }
-#<div id="ddtopmenubar" class="mattblackmenu">
-#<ul>
-#<li rel="s1"><a class="" href="programs.php?countryid=1">Canada<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#<li rel="s2"><a href="programs.php?countryid=2">India<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#<li rel="s3"><a class="" href="programs.php?countryid=3">Singapore<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#<li rel="s4"><a href="programs.php?countryid=4">U.K.<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#<li rel="s5"><a href="programs.php?countryid=5">U.S.A<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#<li rel="s6"><a href="programs.php?countryid=6">Australia<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#<li rel="s7"><a href="programs.php?countryid=7">New Zealand<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#<li rel="s8"><a href="programs.php?countryid=8">Other<img class="downarrowpointer" style="width: 11px; height: 7px;" src="ddlevelsfiles/arrow-down.gif"></a></li>
-#</ul>
-/*<ul style="z-index: 2000; left: 0px; top: -1000px; visibility: hidden;" id="s1" class="ddsubmenustyle">
-<li><a href="programs.php?countryid=1&amp;city=Surrey">Surrey</a></li>
-<li><a href="programs.php?countryid=1&amp;city=Toronto">Toronto</a></li>
-<li><a href="programs.php?countryid=1&amp;city=Vancouver">Vancouver</a></li>
-</ul>
-<ul style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;" id="s2" class="ddsubmenustyle">
-<li><a href="programs.php?countryid=2&amp;city=Ahemdabad">Ahemdabad</a></li>
-<li><a href="programs.php?countryid=2&amp;city=Anandpur Sahib">Anandpur Sahib</a></li>
-<li><a href="programs.php?countryid=2&amp;city=Nagpur">Nagpur</a></li>
-<li><a href="programs.php?countryid=2&amp;city=Ropar">Ropar</a></li>
-</ul>
-<ul style="z-index: 2000; left: 0px; top: -1000px; visibility: hidden;" id="s3" class="ddsubmenustyle">
-<li><a href="programs.php?countryid=3&amp;city=Singapore">Singapore</a></li>
-</ul>
-<ul style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;" id="s4" class="ddsubmenustyle">
-<li><a href="programs.php?countryid=4&amp;city=Midlands">Midlands</a></li>
-<li><a href="programs.php?countryid=4&amp;city=North">North</a></li>
-<li><a href="programs.php?countryid=4&amp;city=South">South</a></li>
-</ul>
-<ul style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;" id="s5" class="ddsubmenustyle">
-<li><a href="programs.php?countryid=5&amp;city=Connecticut">Connecticut</a></li>
-<li><a href="programs.php?countryid=5&amp;city=NY/NJ">NY/NJ</a></li>
-</ul>
-<ul style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;" id="s6" class="ddsubmenustyle">
-<li><a href="programs.php?countryid=6&amp;city=Melbourne">Melbourne</a></li>
-</ul>
-<ul style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;" id="s7" class="ddsubmenustyle">
-</ul>
-<ul style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;" id="s8" class="ddsubmenustyle">
-<li><a href="programs.php?countryid=8&amp;city=Amsterdam">Amsterdam</a></li>
-<li><a href="programs.php?countryid=8&amp;city=France">France</a></li>
-<li><a href="programs.php?countryid=8&amp;city=Germany">Germany</a></li>
-<li><a href="programs.php?countryid=8&amp;city=Italy">Italy</a></li>
-<li><a href="programs.php?countryid=8&amp;city=Stockholm">Stockholm</a></li>
-</ul>
-<ul id="s9" class="ddsubmenustyle">
-</ul>*/
 
 
-function parseMenu($clean_html)
-{
-	$doc = new DOMDocument();
-	@$doc->loadHTML($clean_html);
-	$divs = $doc->getElementsByTagName('div');
-	echo "<div class='mainMenu'>";
-	echo "<ul>";
-	echo "<li><a href='?p=programs&countryid=0'>ALL INTERNATIONAL</a></li>";
-	echo "<br>";
-	foreach($divs as $div)
-	{
-		if($div->getAttribute('class')=="mattblackmenu")
+
+class Menu {
+
+	# three private variables
+	private $countries = array(); 	# an array of countries
+	private $cities = array();		# an associative array of cities (aka hash)
+	private $html_file;				# the HTML file we are parsing
+	
+	
+	# constructor: When the object is made we should
+	# parse the cities and countries and set the html_file variable
+	# also calling a new DOMDocument
+	 function __construct() { 
+	 	$this->html_file = new DOMDocument();
+	 	@$this->html_file->loadHTML($clean_html);
+	 	$this->parse_countries();
+	 	$this->parse_cities();
+
+        
+     }
+       
+       
+        	
+	public function get_countries(){
+		return $this->countries;
+	}
+	public function get_cities(){
+		return $this->cities;
+	}
+	private function parse_countries(){
+	
+		$divs = $this->html_file->getElementsByTagName('div');
+		foreach($divs as $div)
 		{
-			$lis = $div->getElementsByTagName('li');
-			$i = 1;
-			foreach ($lis as $li)
+			if($div->getAttribute('class')=="mattblackmenu")
 			{
-	
-				$eachCountry = $li->nodeValue;
-				echo "<li><a href='?p=programs&countryid=$i'>$eachCountry</a></li>";
-				if ($i == 5)
+				$lis = $div->getElementsByTagName('li');
+				$i = 1;
+				foreach ($lis as $li)
 				{
-				echo "<br>";
-				}
-				
-				$i = $i + 1;
-
-			}
 		
+					$eachCountry = $li->nodeValue;
+					array_push($countries, $eachCountry);
+					$i = $i + 1;
+				}
+			}
 		}
+		
+	}
 	
+	private function parse_cities() {
+		
+		$uls = $this->html_file->getElementsByTagName('ul');
+		foreach($uls as $ul)
+		{
+			if($ul->getAttribute('class')=="ddsubmenustyle")
+			{
+				$as = $ul->getElementsByTagName('a');
+				foreach($as as $a)
+				{
+					if($a->hasAttribute('href')==true)
+					{
+								$url = $a->getAttribute('href');
+								$urlArray = explode("=",$url);
+								$idArray = explode("&",$urlArray[1]);
+								$city = $urlArray[2];
+								$countryID = $idArray[0];
+								$city = str_replace ( '%20', ' ', $city);
+								$temp_array = array("$city" => "$countryID");
+								$cityCountryArray = array_merge($cityCountryArray, $temp_array);		
+					}	
+				}
+			}	
+		}
+		
+		
+		
+		
 	}
 
-	echo "</ul>";
-	echo "</div>";
 	
-	
-	
-	#$uls = $doc->getElementsByTagName('ul');
-	#<div id="ddtopmenubar" class="mattblackmenu">
-	#echo count($uls);
-	#foreach($uls as $ul)
-	#{
-	#	#echo $div->nodeValue;
-	#	$children = $ul->childNodes;
-	#	foreach ($children as $child)
-	#	{
-	#		echo $child->nodeValue;
-	#	
-	#	}
-	#}
 
 
 
 }
+
+
+
+
+
+
 
 
 

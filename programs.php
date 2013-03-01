@@ -44,8 +44,8 @@ else
 {
 	#get international programs only:
 	#echo '<div class="pageTitle">AKJ International Programs</div>';
-	$target_url = "http://akj.org/skins/one/programs.php";
-	#$target_url = "http://ikarandeep.com/akj/programs.html";
+	#$target_url = "http://akj.org/skins/one/programs.php";
+	$target_url = "http://ikarandeep.com/akj/programs.html";
 }
 
 #echo "target url is $target_url";
@@ -87,7 +87,43 @@ $clean_html = $purifier->purify($html);
 
 #menu will go here
 
-parseMenu($clean_html);
+#	$counter = 1;
+#	foreach ($countries as $country)
+#	{
+#		foreach($cityCountryArray as $key => $value)
+#		{
+#			if($value == $counter)
+#			{
+#				echo "$country & $key<br>";
+#			
+#			}	
+#			
+#		}
+#		
+#		$counter = $counter + 1;
+#		
+#	}
+
+echo "HELLO<br>";
+
+
+$program_menu = new Menu($clean_html);
+echo "HELLO";
+
+$cities = $program_menu->get_cities();
+echo "HELLO AGAIN<br>";
+
+echo "hello";
+
+
+foreach($cities as $city)
+{
+echo "hello $city <br>";
+
+}
+
+
+
 echo '<ul data-role="listview" data-filter="true">';
 if($city)
 {
@@ -95,6 +131,7 @@ if($city)
 }
 else
 {
+
 	parseMainAndCountry($clean_html);
 }
 echo '</ul>';
