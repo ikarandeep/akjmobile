@@ -23,6 +23,8 @@ function showonlyone(thechosenone) {
      });
 }
 </script>
+
+
 <!--jquery mobile-->
   <link rel="stylesheet" href="themes/Akj_v1.min.css" />
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" /> 

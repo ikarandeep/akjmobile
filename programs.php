@@ -1,126 +1,99 @@
+<script>
+    $(function() {
+        $('#item').change(function() {
+            $.mobile.changePage('?p=programs', {
+                type: 'get',
+                data: $('form#myForm').serialize()
+            });
+        });
+    });
+</script>
+
 <article data-role="content">
 <div class="programs">
 <?php
 require_once 'htmlpurifier/library/HTMLPurifier.auto.php';
 require_once 'functions.php';
-#$file = "akj.html";
-#$fp = fopen($file, 'w');
-$ch = curl_init();
-#$target_url = "http://ikarandeep.com/akj/programs.html";
 
-$country = false;
 $city = false;
 
-if(!empty($_GET['countryid']))
-{
-	$country = true;
-	$countryid = $_GET['countryid'];
-
-}
-if(!empty($_GET['city']))
+if(!(empty($_GET['city'])))
 {
 	$city = true;
-	$cityid = $_GET['city'];
-
-}
-
-if($countryid == 0)
-{
-	$country = false;
 }
 
 
-if (($country) && ($city))
-{
-	$target_url = "http://akj.org/skins/one/programs.php?countryid=$countryid&city=$cityid";
-	#$pageTitle="$city Programs"
-
-}
-elseif(($country) && !($city))
-{	
-	$target_url = "http://akj.org/skins/one/programs.php?countryid=$countryid";
-}
-else
-{
-	#get international programs only:
-	#echo '<div class="pageTitle">AKJ International Programs</div>';
-	#$target_url = "http://akj.org/skins/one/programs.php";
-	$target_url = "http://ikarandeep.com/akj/programs.html";
-}
-
-#echo "target url is $target_url";
-$target_url = str_replace ( ' ', '%20', $target_url);
-#echo "target url is $target_url";
-
-#http://www.akj.org/skins/one/programs.php?countryid=5&city=Connecticut
-#curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
-curl_setopt($ch, CURLOPT_URL,$target_url);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-#curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($ch, CURLOPT_FAILONERROR, true);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-#curl_setopt($ch, CURLOPT_FILE, $fp);
-$html = curl_exec($ch);
-if (!$html) {
-	echo "<br />cURL error number:" .curl_errno($ch);
-	echo "<br />cURL error:" . curl_error($ch);
-	exit;
-}
-else{
-	curl_close($ch);
-#	fclose($fp);
-}
-
-#var_dump(html_entity_decode($html, ENT_COMPAT, 'UTF-8'));
-#$htmlTwo = file_get_contents($html);
+#$clean_html = get_html($target_url,$home);
+$menu_html = new GetHtml("menu");
+$dirty_menu_html = $menu_html->get_html();
 $config = HTMLPurifier_Config::createDefault();
-$config->set('Core.Encoding', 'UTF-8'); // replace with your encoding
-$config->set('HTML.Doctype', 'HTML 4.01 Transitional'); // replace with your doctype
+$config->set('Core.Encoding', 'UTF-8');
+$config->set('HTML.Doctype', 'HTML 4.01 Transitional');
 $config->set('Core.EscapeNonASCIICharacters', 'true');
 $purifier = new HTMLPurifier($config);
-$clean_html = $purifier->purify($html);
-#$new = html_entity_decode("&nbsp;",$clean_html);
-
-
-#menu will go here
-
-#	$counter = 1;
-#	foreach ($countries as $country)
-#	{
-#		foreach($cityCountryArray as $key => $value)
-#		{
-#			if($value == $counter)
-#			{
-#				echo "$country & $key<br>";
-#			
-#			}	
-#			
-#		}
-#		
-#		$counter = $counter + 1;
-#		
-#	}
-
-echo "HELLO<br>";
-
-
-$program_menu = new Menu($clean_html);
-echo "HELLO";
-
+$clean_menu_html = $purifier->purify($dirty_menu_html);
+		
+$program_menu = new Menu($clean_menu_html);
 $cities = $program_menu->get_cities();
-echo "HELLO AGAIN<br>";
-
-echo "hello";
+$countries = $program_menu->get_countries();
 
 
-foreach($cities as $city)
+
+$html = new GetHtml("main");
+$dirty_html = $html->get_html();
+$config = HTMLPurifier_Config::createDefault();
+$config->set('Core.Encoding', 'UTF-8');
+$config->set('HTML.Doctype', 'HTML 4.01 Transitional');
+$config->set('Core.EscapeNonASCIICharacters', 'true');
+$purifier = new HTMLPurifier($config);
+$clean_html = $purifier->purify($dirty_html);
+
+$countryid = $html->get_country_id();
+$cityid = $html->get_city_id();
+
+$counter = 1;
+
+
+echo "<form method='get' id='myForm'>"; #window.location='ban.php?product='+this.value"
+echo '<select id="item" name="item" onChange="window.open(this.options[this.selectedIndex].value,\'_top\')">';
+echo '<option value=\"?p=programs\" selected>All International</option>';
+$selected = false;
+foreach ($countries as $countryItem)
 {
-echo "hello $city <br>";
-
+	if($countryid == $counter && $city==false && $selected == false)
+	{
+		echo "<option value=\"?p=programs&countryid=$counter\" selected>$countryItem</option>";
+		$selected = true;
+	}
+	else
+	{
+		echo "<option value=\"?p=programs&countryid=$counter\">$countryItem</option>";
+	}
+	
+	foreach($cities as $cityItem => $countryNumber)
+	{
+		if($countryNumber == $counter)
+		{
+			if($city == true && "$cityid" == "$cityItem" && "$countryid" == "$counter" && $selected == false)
+			{
+				echo "<option value=\"?p=programs&countryid=$counter&city=$cityItem\" selected>--$cityItem</option>";
+				$selected = true;
+			}
+			else
+			{
+				echo "<option value=\"?p=programs&countryid=$counter&city=$cityItem\">--$cityItem</option>";	
+			}
+		}	
+			
+	}
+		
+	$counter = $counter + 1;
+		
 }
+echo "</select></form>";
+
+
+
 
 
 
@@ -135,7 +108,13 @@ else
 	parseMainAndCountry($clean_html);
 }
 echo '</ul>';
+
+
+
+
 ?>
+
+
 
 </div>
 </article>

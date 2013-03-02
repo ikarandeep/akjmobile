@@ -1,0 +1,577 @@
+<html>
+<head>
+<title>:: AKJ.Org :: Programs ::</title>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<LINK HREF="style.css" REL="stylesheet" TYPE="text/css">
+<script language="JavaScript" fptype="dynamicanimation">
+<!--
+function dynAnimation() {}
+function clickSwapImg() {}
+//-->
+</script>
+<script language="JavaScript1.2" fptype="dynamicanimation" src="animate.js">
+</script>
+<script type="text/javascript" src="calendarDateInput.js">
+</script>
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" class="pageback" onLoad="dynAnimation()" language="Javascript1.2">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1">
+	<tr>
+		<td height="720" valign="top">
+		<div align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="778" id="table2">
+				<tr>
+					<td class="border">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table134" >
+						<tr><a href="index.php">
+							<td height="91" class="topback"  valign="top" onClick="JavaScript:window.location.assign('index.php');">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table135">
+								<tr>
+									<td colspan="3">&nbsp;</td>
+								</tr>
+								<tr>
+									<td width="33%">&nbsp;</td>
+									<td height="25" width="33%">
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="377" height="27" id="topani" align="middle">
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="topani.swf" />
+<param name="quality" value="High" /><param name="bgcolor" value="#ffffff" />
+<param name="wmode" value="transparent">
+<embed src="topani.swf" quality="High" bgcolor="#ffffff" width="377" height="27" name="topani" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" />
+</object>
+									</td>
+									<td width="33%">&nbsp;</td>
+								</tr>
+							</table>
+							</td>
+						</a></tr>
+						<tr>
+							<td class="topmenubar" height="25">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table136">
+								<tr>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP33'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP33'].src=document['fpAnimswapImgFP33'].imgRolln" href="aboutus.php">
+									<img border="0" src="images/butt_1.gif" width="96" height="36" id="fpAnimswapImgFP33" name="fpAnimswapImgFP33" dynamicanimation="fpAnimswapImgFP33" lowsrc="images/butt_1h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP34'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP34'].src=document['fpAnimswapImgFP34'].imgRolln" href="list.php?ba=1&b=6&p=misc">
+									<img border="0" src="images/butt_2.gif" width="85" height="36" id="fpAnimswapImgFP34" name="fpAnimswapImgFP34" dynamicanimation="fpAnimswapImgFP34" lowsrc="images/butt_2h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP35'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP35'].src=document['fpAnimswapImgFP35'].imgRolln" href="programs.php">
+									<img border="0" src="images/butt_3.gif" width="84" height="36" id="fpAnimswapImgFP35" name="fpAnimswapImgFP35" dynamicanimation="fpAnimswapImgFP35" lowsrc="images/butt_3h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP36'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP36'].src=document['fpAnimswapImgFP36'].imgRolln" href="keertan.php">
+									<img border="0" src="images/butt_4.gif" width="85" height="36" id="fpAnimswapImgFP36" name="fpAnimswapImgFP36" dynamicanimation="fpAnimswapImgFP36" lowsrc="images/butt_4h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP37'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP37'].src=document['fpAnimswapImgFP37'].imgRolln" href="/multimedia/pgallery/index.php">
+									<img border="0" src="images/butt_5.gif" width="79" height="36" id="fpAnimswapImgFP37" name="fpAnimswapImgFP37" dynamicanimation="fpAnimswapImgFP37" lowsrc="images/butt_5h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP38'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP38'].src=document['fpAnimswapImgFP38'].imgRolln" href="literature.php">
+									<img border="0" src="images/butt_6.gif" width="79" height="36" id="fpAnimswapImgFP38" name="fpAnimswapImgFP38" dynamicanimation="fpAnimswapImgFP38" lowsrc="images/butt_6h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP39'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP39'].src=document['fpAnimswapImgFP39'].imgRolln" href="/forum/search.php?keywords=*&terms=all&author=&sc=1&sf=all&sr=topics&sk=t&sd=d&st=14&ch=0&t=0&submit=Search">
+									<img border="0" src="images/butt_7.gif" width="84" height="36" id="fpAnimswapImgFP39" name="fpAnimswapImgFP39" dynamicanimation="fpAnimswapImgFP39" lowsrc="images/butt_7h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP40'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP40'].src=document['fpAnimswapImgFP40'].imgRolln" href="matrimonial.php">
+									<img border="0" src="images/butt_8.gif" width="78" height="36" id="fpAnimswapImgFP40" name="fpAnimswapImgFP40" dynamicanimation="fpAnimswapImgFP40" lowsrc="images/butt_8h.gif"></a></td>
+									<td>
+									<a onMouseOver="var img=document['fpAnimswapImgFP41'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onMouseOut="document['fpAnimswapImgFP41'].src=document['fpAnimswapImgFP41'].imgRolln" href="contribute.php">
+									<img border="0" src="images/butt_9.gif" width="107" height="36" id="fpAnimswapImgFP41" name="fpAnimswapImgFP41" dynamicanimation="fpAnimswapImgFP41" lowsrc="images/butt_9h.gif"></a></td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+<link rel="stylesheet" type="text/css" href="ddlevelsfiles/ddlevelsmenu-base.css" />
+<link rel="stylesheet" type="text/css" href="ddlevelsfiles/ddlevelsmenu-topbar.css" />
+<link rel="stylesheet" type="text/css" href="ddlevelsfiles/ddlevelsmenu-sidebar.css" />
+
+<script type="text/javascript" src="ddlevelsfiles/ddlevelsmenu.js">
+</script>
+						<tr>
+							<td>
+							<table border="0" cellpadding="0" cellspacing="5" width="100%" id="table137" bgcolor="#FFFFFF">
+								<tr class="whaitenack">
+								  <td width="100%" valign="top" align="center">
+<br />
+
+<div id="ddtopmenubar" class="mattblackmenu">
+<ul>
+<li rel="s1"><a href="programs.php?countryid=1">Canada</a></li>
+<li rel="s2"><a href="programs.php?countryid=2">India</a></li>
+<li rel="s3"><a href="programs.php?countryid=3">Singapore</a></li>
+<li rel="s4"><a href="programs.php?countryid=4">U.K.</a></li>
+<li rel="s5"><a href="programs.php?countryid=5">U.S.A</a></li>
+<li rel="s6"><a href="programs.php?countryid=6">Australia</a></li>
+<li rel="s7"><a href="programs.php?countryid=7">New Zealand</a></li>
+<li rel="s8"><a href="programs.php?countryid=8">Other</a></li>
+</ul>
+</div>
+<script type="text/javascript">
+ddlevelsmenu.setup("ddtopmenubar", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
+
+      <table align="centre" border="0" cellspacing="5" width="100%" bgcolor="#003366" cellpadding="5">
+        <tr>
+          <td><img src="images/clear.gif"></td>
+        </tr>
+        <tr>
+          <td>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                  <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="2">
+                    <tr>
+                      <td align="center" colspan="3" class="Chapter">Toronto (ON) 
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="left" width="100" > &nbsp; Date</td>
+                      <th align="left" valign="top" >Program</td>
+                      <th align="left" width="150" >Contact Info</td>
+                    </tr>
+                    <tr>
+                      <td width="100" BGCOLOR="#EEEEEE"  valign="top"> &nbsp;  Mar 02 2013 
+ to <br> &nbsp; Mar 02 2013 
+                      </td>
+                      <td BGCOLOR="#EEEEEE"  valign="top"><b>Aasaa Dee Vaar Keertan</b><br>4:00 AM to 9:00 AM                      <br>Gurooduaaraa Saaheb-Dixie Road (Hall No. 5)                      <br>Nitnem: 4:00am-5:00am<br>
+Asaa Dee Vaar Keertan: 5:00am-9:00am<br>
+Ontario Khalsa Darbar<br>
+7080 Dixie Road, Mississauga, ON <br>                      </td>
+                      <td width="150" BGCOLOR="#EEEEEE"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#DDDDDD"  valign="top"> &nbsp;  Mar 02 2013 
+ to <br> &nbsp; Mar 02 2013 
+                      </td>
+                      <td BGCOLOR="#DDDDDD"  valign="top"><b>Akhand Keertan</b><br>6:00 PM to 9:00 PM                      <br>Gurooduaaraa Saaheb - New Rexdale                      <br>9 Carrier Drive, Rexdale, ON<br>
+Please <a href="http://maps.google.ca/maps?f=q&source=s_q&hl=en&geocode=&q=9+Carrier+Drive,+Rexdale,+ON&ie=UTF8&hq=&hnear=9+Carrier+Dr,+Toronto,+Toronto+Division,+Ontario&z=16"><b>click here</b></a> for the directions...                      </td>
+                      <td width="150" BGCOLOR="#DDDDDD"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#EEEEEE"  valign="top"> &nbsp;  Mar 09 2013 
+ to <br> &nbsp; Mar 09 2013 
+                      </td>
+                      <td BGCOLOR="#EEEEEE"  valign="top"><b>Aasaa Dee Vaar Keertan</b><br>4:00 AM to 9:00 AM                      <br>Gurooduaaraa Saaheb-Dixie Road (Hall No. 5)                      <br>Nitnem: 4:00am-5:00am<br>
+Asaa Dee Vaar Keertan: 5:00am-9:00am<br>
+Ontario Khalsa Darbar<br>
+7080 Dixie Road, Mississauga, ON <br>                      </td>
+                      <td width="150" BGCOLOR="#EEEEEE"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#DDDDDD"  valign="top"> &nbsp;  Mar 15 2013 
+ to <br> &nbsp; Mar 17 2013 
+                      </td>
+                      <td BGCOLOR="#DDDDDD"  valign="top"><b>Sree Akhand Paatth Saaheb</b><br>0:00 AM to 6:00 AM                      <br>Residence of Bh. Gurcharan Singh Jee                       <br>7 Alfonso Cres, Brampton, Ontario, L6P 1S4<br>
+Please <a href="https://maps.google.ca/maps?q=7+Alfonso+Cres,+Brampton,+Ontario,+L6P+1S4&hl=en&sll=43.724934,-79.759544&sspn=0.411361,1.056747&hnear=7+Alfonso+Crescent,+Brampton,+Ontario+L6P+1S4&t=m&z=17"><b>click here</b></a> for the directions...<br>
+For more information please call 416-948-9020.                      </td>
+                      <td width="150" BGCOLOR="#DDDDDD"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#EEEEEE"  valign="top"> &nbsp;  Mar 16 2013 
+ to <br> &nbsp; Mar 16 2013 
+                      </td>
+                      <td BGCOLOR="#EEEEEE"  valign="top"><b>Aasaa Dee Vaar Keertan</b><br>4:00 AM to 9:00 AM                      <br>Gurooduaaraa Saaheb-Dixie Road (Hall No. 5)                      <br>Nitnem: 4:00am-5:00am<br>
+Asaa Dee Vaar Keertan: 5:00am-9:00am<br>
+Ontario Khalsa Darbar<br>
+7080 Dixie Road, Mississauga, ON <br>                      </td>
+                      <td width="150" BGCOLOR="#EEEEEE"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#DDDDDD"  valign="top"> &nbsp;  Mar 17 2013 
+ to <br> &nbsp; Mar 17 2013 
+                      </td>
+                      <td BGCOLOR="#DDDDDD"  valign="top"><b>Aasaa Dee Vaar Keertan</b><br>7:00 AM to 11:00 AM                      <br>Residence of Bh. Gurcharan Singh Jee                      <br>7 Alfonso Cres, Brampton, Ontario, L6P 1S4<br>
+Please <a href="https://maps.google.ca/maps?q=7+Alfonso+Cres,+Brampton,+Ontario,+L6P+1S4&hl=en&sll=43.724934,-79.759544&sspn=0.411361,1.056747&hnear=7+Alfonso+Crescent,+Brampton,+Ontario+L6P+1S4&t=m&z=17"><b>click here</b></a> for the directions...<br>
+For more information please call 416-948-9020.                      </td>
+                      <td width="150" BGCOLOR="#DDDDDD"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#EEEEEE"  valign="top"> &nbsp;  Mar 23 2013 
+ to <br> &nbsp; Mar 23 2013 
+                      </td>
+                      <td BGCOLOR="#EEEEEE"  valign="top"><b>Aasaa Dee Vaar Keertan</b><br>4:00 AM to 9:00 AM                      <br>Gurooduaaraa Saaheb-Dixie Road (Hall No. 5)                      <br>Nitnem: 4:00am-5:00am<br>
+Asaa Dee Vaar Keertan: 5:00am-9:00am<br>
+Ontario Khalsa Darbar<br>
+7080 Dixie Road, Mississauga, ON <br>                      </td>
+                      <td width="150" BGCOLOR="#EEEEEE"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#DDDDDD"  valign="top"> &nbsp;  Mar 30 2013 
+ to <br> &nbsp; Mar 31 2013 
+                      </td>
+                      <td BGCOLOR="#DDDDDD"  valign="top"><b>Raensabaayee Keertan</b><br>9:00 PM to 4:00 AM                      <br>Gurooduaaraa Saaheb-Dixie-Hall No.5                      <br>Ontario Khalsa Darbar<br>
+7080 Dixie Road, Mississauga, ON<br>                      </td>
+                      <td width="150" BGCOLOR="#DDDDDD"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#EEEEEE"  valign="top"> &nbsp;  Apr 09 2013 
+ to <br> &nbsp; Apr 14 2013 
+                      </td>
+                      <td BGCOLOR="#EEEEEE"  valign="top"><b>Monthly Keertan Smaagams</b><br>0:00 AM to 0:00 AM                      <br>Various Gurooduaaraa Sahibs Across GTA                      <br><i>To commemorate the birth of Khalsa - Vaisaakhee </i><br>
+<br>
+<u><b>Tuesday, April 9, 2013 - Friday, April 12, 2013</b></u><br>
+
+<b>Shree Sehaj Paatth Saaheb</b> <br>
+5:00 AM - 5:00 AM <br>
+DAILY (April 9th - April 12th) Nitname and Shree Asa Kee Vaar Keertan 3:00 AM - 5:00 AM<br>and Sodar Chownki Akhand Keertan 6pm-8:30pm<br>
+Residence of Bh. Harpinder Singh jee <br>
+121 Pannahill Drive, Brampton ON L6P3T6<br>
+<br>
+
+<u><b>Friday, April 12, 2012</b></u> <br>
+
+<b>Bhog Shree Sehaj Paath Saaheb and Shree Asaa Kee Vaar Keertan</b> <br>
+6:00 AM - 12:00 PM <br>
+Residence Bh. Harpinder Singh Jee<br>
+121 Pannahill Drive, Brampton ON L6P3T6<br>
+<br>
+
+<b>Akhand Keertan</b> <br>
+5:00 PM - 9:00 PM <br>
+Gurooduaaraa Saaheb Dashmesh Darbar <br>
+4525 Ebenezer Road, Brampton, ON L6P2K8<br>
+
+<br>
+<u><b>Saturday, April 13, 2013</b></u><br>
+
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 12:00 PM <br>
+Gurooduaaraa Saaheb Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+<br>
+<b>Raensabaayee Keertan </b> <br>
+6:00 PM - 6:00 AM <br>
+Gurooduaaraa Saaheb Dashmesh Darbar <br>
+4525 Ebenezer Road, Brampton, ON L6P2K8<br>
+<b>Anand Karaj of Bh. Bhagatjot Singh jee and Bibi Balmeet Kaur jee (4am - 6am)</b>
+<br>
+<br>
+<b>For more information, please call: </b> <br>
+Bh. Deepinder Singh - (416) 508-0318 <br>
+Bh. Harpinder Singh - (647) 960-6369 <br>                      </td>
+                      <td width="150" BGCOLOR="#EEEEEE"  valign="top">                      </td>
+                    </tr>
+            <table bgcolor="#ffcc66" width="100%" cellspacing="0" cellpadding="1">
+              <tr>
+                <td>
+                    <tr>
+                      <td width="100" BGCOLOR="#DDDDDD"  valign="top"> &nbsp;  Jun 28 2013 
+ to <br> &nbsp; Jul 07 2013 
+                      </td>
+                      <td BGCOLOR="#DDDDDD"  valign="top"><b>Annual Akhand Keertan Smaagam</b><br>0:00 AM to 0:00 AM                      <br>Various Gurdwara Sahibs Across the GTA                      <br><br>
+<b>In loving memory of the 406th shaheedee divas of Dhan Dhan Shree Guru Arjan Saaheb Jee, the shaheeds of June 1984 and Bhai Saaheb Bhai Randheer Singh Jee.</b>
+<br><br>
+<br>
+<br>
+<font size="2"><u><b>Friday, June 28, 2013 - Sunday, July 7, 2013</b></u></font><br>
+<br>
+<b>Shree Akhand Paatth Saaheb</b> <br>
+5:00 AM - 5:00 AM <br>
+(Asa Kee Vaar Keertan 3:00 AM - 5:00 AM) <br>
+<br>
+<br>
+
+<font size="2"><u><b>Sunday, June 30, 2013</b></u></font> <br>
+<br>
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 10:00 AM <br>
+Gurooduaaraa Sahib Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905)670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+
+<font size="2"><u><b>Monday, July 1, 2013</b></u></font> <br>
+<br>
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 10:00 AM <br>
+Gurooduaaraa Sahib Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905)670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+<b>Akhand Keertan</b> <br>
+5:00 PM - 9:00 PM <br>
+Gurooduaaraa Sahib Old Rexdale <br>
+47 Baywood Road, Rexdale, ON, M9V 3Y8 <br>
+(416) 746-6666 <br>
+Please <a href="http://maps.google.ca/maps?q=47+Baywood+Road,+Rexdale,+ON,+M9V+3Y8+&hl=en&hnear=47+Baywood+Rd,+Etobicoke,+Ontario+M9V+3Y8&t=m&z=16&vpsrc=0"><b>click here</b></a> for the directions...<br>
+<br>
+
+<font size="2"><u><b>Tuesday, July 2, 2013</b></u></font> <br>
+<br>
+
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 10:00 AM <br>
+Gurooduaaraa Sahib Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905) 670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+<b>Akhand Keertan</b> <br>
+5:00 PM - 9:00 PM <br>
+Gurooduaaraa Sahib - Glidden Rd. <br>
+99 Glidden Road, Brampton, ON<br>
+(905) 457-2860 <br>
+Please <a href="http://maps.google.ca/maps?q=99+Glidden+Road,+Brampton,+ON&hl=en&sll=49.891235,-97.15369&sspn=45.618131,135.263672&hnear=99+Glidden+Rd,+Brampton,+Ontario+L6T+2H8&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+
+<font size="2"><u><b>Wednesday, July 3, 2013</b></u></font> <br>
+<br>
+
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 10:00 AM <br>
+Gurooduaaraa Sahib Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905) 670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+<b>Akhand Keertan </b> <br>
+5:00 PM - 9:00 PM <br>
+Gurooduaaraa Sahib Dixie Rd. (Main Hall) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905) 670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+
+<font size="2"><u><b>Thursday, July 4, 2013</b></u></font><br>
+<br>
+
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 10:00 AM <br>
+Gurooduaaraa Sahib Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905) 670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+<b>Akhand Keertan</b> <br>
+5:00 PM - 9:00 PM <br>
+Gurooduaaraa Saaheb-Dashmesh Darbar<br>
+4525 Ebenezer Rd., Brampton, ON<br>
+Please <a href="http://maps.google.ca/maps?f=q&source=s_q&hl=en&geocode=&q=4525+Ebenezer+Rd.,+Brampton,+ON&sll=49.891235,-97.15369&sspn=38.532134,78.837891&ie=UTF8&hq=&hnear=4525+Ebenezer+Rd,+Brampton,+Peel+Regional+Municipality,+Ontario&z=16"><b>click here</b></a> for the directions.<br>
+For more info. please call 905-794-4664.<br><br>
+
+<font size="2"><u><b>Friday, July 6, 2012</b></u></font> <br>
+<br>
+
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 10:00 AM <br>
+Gurooduaaraa Sahib Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905) 670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+<b>Akhand Keertan</b> <br>
+5:00 PM - 9:00 PM <br>
+Gurooduaaraa Sahib Van Kirk (Brampton) <br>
+32 Regan Road, Brampton, ON, L7A 1A7 <br>
+(905) 495-1200 <br>
+Please <a href="http://maps.google.ca/maps?q=32+Regan+Rd,+Brampton,+ON+L7A+1A7&hl=en&sll=43.676206,-79.677014&sspn=0.007201,0.014119&vpsrc=0&hnear=32+Regan+Rd,+Brampton,+Ontario+L7A+1B4&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+
+<font size="2"><u><b>Saturday, July 7, 2011</b></u></font><br>
+<br>
+<b>Nitname & Shree Asaa Kee Vaar Keertan</b> <br>
+3:00 AM - 12:00 PM <br>
+Gurooduaaraa Sahib Dixie Rd. (Hall # 5) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905) 670-3311 <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+
+
+<b>Raensabaaee Keertan</b> <br>
+6:00 PM - 6:00 AM <br>
+Gurooduaaraa Sahib Dixie Rd. (Main Hall) <br>
+7080 Dixie Road, Mississauga, ON <br>
+(905) 670-3311 <br>
+<b>Anand Kaaraj of Bhai Gaganjot Singh jee & Bibi X Kaur jee (4:00 AM - 6:00 AM) </b> <br>
+Please <a href="http://maps.google.ca/maps?q=7080+Dixie+Road,+Mississauga,+ON&hl=en&ll=43.676206,-79.677014&spn=0.007201,0.014119&sll=43.747189,-79.60613&sspn=0.007192,0.014119&vpsrc=6&hnear=7080+Dixie+Rd,+Mississauga,+Peel+Regional+Municipality,+Ontario&t=m&z=16"><b>click here</b></a> for the directions...<br>
+<br>
+<b>*Note: Amrit Sanchaar Samaagam in small side room, in front of Hall # 5 (9:00 AM)</b> <br>
+<br>
+
+<b>For more information, please call:</b> <br>
+
+Bh. Deepinder Singh - (416) 508-0318 <br>
+Bh. Maheshinder Singh - (416) 819-3321 <br>
+Bh. Jaswinder Singh - (416) 407-5890 <br>
+<br>
+
+<b>*Note: Live broadcast details will be available on the message board during samaagam. </b> <br>                      </td>
+                      <td width="150" BGCOLOR="#DDDDDD"  valign="top">                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+                </td>
+              </tr>
+            </table>
+            <p class="Secondary">For local programs, select the cities from under the country tab. Please email us at <a class="Secondary" href="mailto:sevaa@akj.org">sevaa@akj.org</a><br>if you have information regarding programs in your area.
+          </td>
+        </tr>
+      </table>
+
+
+								  </td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+
+		<tr>
+							<td class="whaitenack">
+							<img border="0" src="images/spcr.gif" width="1" height="1"></td>
+						</tr>
+						<tr>
+							<td class="whaitenack">
+							<img border="0" src="images/spcr.gif" width="1" height="1"></td>
+						</tr>
+						<tr>
+							<td>
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table152">
+								<tr>
+									<td class="whaitenack">
+									<img border="0" src="images/spcr.gif" width="1" height="1"></td>
+								</tr>
+								<tr>
+									<td class="footerback2" height="47">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table153" class="txt_footer" height="100%">
+										<tr>
+											<td width="100%" colspan="3">
+											<img border="0" src="images/spcr.gif" width="5" height="5"></td>
+										</tr>
+<tr>
+											<td width="186">&nbsp;</td>
+											<td width="408">
+											<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table162">
+												<tr>
+													<td align="center" width="72">
+													<a onmouseover="var img=document['fpAnimswapImgFP44'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP44'].src=document['fpAnimswapImgFP44'].imgRolln" href="/index.php">
+													<img border="0" src="images/butt_home1.gif" width="52" height="20" id="fpAnimswapImgFP44" name="fpAnimswapImgFP44" dynamicanimation="fpAnimswapImgFP44" lowsrc="images/butt_home.gif"></a></td>
+													<td align="center">
+													<img border="0" src="images/bott_option_sep.gif" width="2" height="22"></td>
+													<td align="center" width="62">
+													<a onmouseover="var img=document['fpAnimswapImgFP45'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP45'].src=document['fpAnimswapImgFP45'].imgRolln" href="/forum/viewforum.php?f=2">
+													<img border="0" src="images/butt_faq1.gif" width="42" height="20" id="fpAnimswapImgFP45" name="fpAnimswapImgFP45" dynamicanimation="fpAnimswapImgFP45" lowsrc="images/butt_faq.gif"></a></td>
+													<td align="center">
+													<img border="0" src="images/bott_option_sep.gif" width="2" height="22"></td>
+													<td align="center" width="116">
+													<a onmouseover="var img=document['fpAnimswapImgFP46'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP46'].src=document['fpAnimswapImgFP46'].imgRolln" href="mailto:sevaa@akj.org">
+													<img border="0" src="images/butt_contact1.gif" width="96" height="20" id="fpAnimswapImgFP46" name="fpAnimswapImgFP46" dynamicanimation="fpAnimswapImgFP46" lowsrc="images/butt_contact.gif"></a></td>
+													<td align="center">
+													<img border="0" src="images/bott_option_sep.gif" width="2" height="22"></td>
+													<td align="center" width="154">
+													<a onmouseover="var img=document['fpAnimswapImgFP47'];img.imgRolln=img.src;img.src=img.lowsrc?img.lowsrc:img.getAttribute?img.getAttribute('lowsrc'):img.src;" onmouseout="document['fpAnimswapImgFP47'].src=document['fpAnimswapImgFP47'].imgRolln" href="/forum/ucp.php?mode=register">
+													<img border="0" src="images/butt_newsletter1.gif" width="134" height="20" id="fpAnimswapImgFP47" name="fpAnimswapImgFP47" dynamicanimation="fpAnimswapImgFP47" lowsrc="images/butt_newsletter.gif"></a></td>
+												</tr>
+											</table>
+											</td>
+											<td width="186">&nbsp;</td>
+										</tr>
+										<tr>
+											<td width="100%" colspan="3">
+											<img border="0" src="images/spcr.gif" width="5" height="5"></td>
+										</tr>
+										<tr>
+											<td width="186">&nbsp;</td>
+											<td width="404">
+											<p align="center" class="txt_footer2">
+											&copy; 2006-2013 Akhand Keertanee Jathaa. All Rights Reserved.</td>
+											<td width="186">&nbsp;</td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</td>
+	</tr>
+	</table>
+	
+<ul id='s1' class='ddsubmenustyle'>
+<li><a href='programs.php?countryid=1&city=Surrey'>Surrey</a></li>
+<li><a href='programs.php?countryid=1&city=Toronto'>Toronto</a></li>
+<li><a href='programs.php?countryid=1&city=Vancouver'>Vancouver</a></li>
+</ul>
+<ul id='s2' class='ddsubmenustyle'>
+<li><a href='programs.php?countryid=2&city=Ahemdabad'>Ahemdabad</a></li>
+<li><a href='programs.php?countryid=2&city=Amritsar Sahib'>Amritsar Sahib</a></li>
+<li><a href='programs.php?countryid=2&city=Anandpur Sahib'>Anandpur Sahib</a></li>
+<li><a href='programs.php?countryid=2&city=Bathinda'>Bathinda</a></li>
+<li><a href='programs.php?countryid=2&city=Nagpur'>Nagpur</a></li>
+<li><a href='programs.php?countryid=2&city=Ropar'>Ropar</a></li>
+</ul>
+<ul id='s3' class='ddsubmenustyle'>
+<li><a href='programs.php?countryid=3&city=Singapore'>Singapore</a></li>
+</ul>
+<ul id='s4' class='ddsubmenustyle'>
+<li><a href='programs.php?countryid=4&city=Midlands'>Midlands</a></li>
+<li><a href='programs.php?countryid=4&city=North'>North</a></li>
+<li><a href='programs.php?countryid=4&city=South'>South</a></li>
+</ul>
+<ul id='s5' class='ddsubmenustyle'>
+<li><a href='programs.php?countryid=5&city=Atlanta'>Atlanta</a></li>
+<li><a href='programs.php?countryid=5&city=Connecticut'>Connecticut</a></li>
+<li><a href='programs.php?countryid=5&city=NY/NJ'>NY/NJ</a></li>
+</ul>
+<ul id='s6' class='ddsubmenustyle'>
+<li><a href='programs.php?countryid=6&city=Melbourne'>Melbourne</a></li>
+</ul>
+<ul id='s7' class='ddsubmenustyle'>
+</ul>
+<ul id='s8' class='ddsubmenustyle'>
+<li><a href='programs.php?countryid=8&city=Amsterdam'>Amsterdam</a></li>
+<li><a href='programs.php?countryid=8&city=France'>France</a></li>
+<li><a href='programs.php?countryid=8&city=Germany'>Germany</a></li>
+<li><a href='programs.php?countryid=8&city=Italy'>Italy</a></li>
+<li><a href='programs.php?countryid=8&city=Stockholm'>Stockholm</a></li>
+</ul>
+<ul id='s9' class='ddsubmenustyle'>
+</ul>
+
+</body>
+
+
+</html>

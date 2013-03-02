@@ -210,23 +210,29 @@ class Menu {
 	# constructor: When the object is made we should
 	# parse the cities and countries and set the html_file variable
 	# also calling a new DOMDocument
-	 function __construct() { 
+	 function __construct($clean_html) { 
 	 	$this->html_file = new DOMDocument();
 	 	@$this->html_file->loadHTML($clean_html);
-	 	$this->parse_countries();
 	 	$this->parse_cities();
+	 	$this->parse_countries();
+
 
         
      }
        
        
-        	
+    # public function to access the countries array
 	public function get_countries(){
 		return $this->countries;
 	}
+	
+	# public function to access the countries array
 	public function get_cities(){
 		return $this->cities;
 	}
+	
+	
+	# private function to parse the countires out of the menu
 	private function parse_countries(){
 	
 		$divs = $this->html_file->getElementsByTagName('div');
@@ -235,19 +241,18 @@ class Menu {
 			if($div->getAttribute('class')=="mattblackmenu")
 			{
 				$lis = $div->getElementsByTagName('li');
-				$i = 1;
 				foreach ($lis as $li)
 				{
-		
 					$eachCountry = $li->nodeValue;
-					array_push($countries, $eachCountry);
-					$i = $i + 1;
+					array_push($this->countries, $eachCountry);
 				}
 			}
 		}
 		
 	}
 	
+	
+	# private function to parse the cities out of the menu
 	private function parse_cities() {
 		
 		$uls = $this->html_file->getElementsByTagName('ul');
@@ -255,21 +260,29 @@ class Menu {
 		{
 			if($ul->getAttribute('class')=="ddsubmenustyle")
 			{
-				$as = $ul->getElementsByTagName('a');
-				foreach($as as $a)
+				$lis = $ul->getElementsByTagName('li');
+				foreach($lis as $li)
 				{
-					if($a->hasAttribute('href')==true)
-					{
-								$url = $a->getAttribute('href');
-								$urlArray = explode("=",$url);
-								$idArray = explode("&",$urlArray[1]);
-								$city = $urlArray[2];
-								$countryID = $idArray[0];
-								$city = str_replace ( '%20', ' ', $city);
-								$temp_array = array("$city" => "$countryID");
-								$cityCountryArray = array_merge($cityCountryArray, $temp_array);		
-					}	
+					
+						$as = $li->getElementsByTagName('a');
+						foreach($as as $a)
+						{
+							if($a->hasAttribute('href')==true)
+							{
+										$url = $a->getAttribute('href');
+										$urlArray = explode("=",$url);
+										$idArray = explode("&",$urlArray[1]);
+										$city = $urlArray[2];
+										$countryID = $idArray[0];
+										$city = str_replace ( '%20', ' ', $city);
+										$temp_array = array("$city" => "$countryID");
+										$this->cities = array_merge($this->cities, $temp_array);
+							}	
+						}
+					
+					
 				}
+				
 			}	
 		}
 		
@@ -278,11 +291,12 @@ class Menu {
 		
 	}
 
+}
 	
 
 
 
-}
+
 
 
 
@@ -593,12 +607,6 @@ function parseKeertan($clean_html)
 
 					}	
 			
-			#<td class="DateTime" align="center" bgcolor="#DDDDDD" width="35">&nbsp;00:25:32&nbsp;</td>
-          	#<td class="Secondary" bgcolor="#DDDDDD">&nbsp;&nbsp;Bhai Gurpreet Singh Jee (Fremont)&nbsp;&nbsp;<font class="NewFlag">UPDATED</font></td> 
-          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35">-          </td>
-          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35"><a href="http://www.akji.org.uk/multimedia/BayArea/2011/201102baya030wed.mp3"><img src="images/mp3.gif" alt="MP3" height="20" border="0" width="25"></a>          </td>
-          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35">-          </td>
-          	#<td class="Secondary" align="center" bgcolor="#DDDDDD" width="35">-          </td>
 				}
 
 			
@@ -612,5 +620,198 @@ function parseKeertan($clean_html)
 }
 
 
+
+
+class GetHtml{
+	
+	private $target_url;
+	private $p;
+	private $countryID;
+	private $cityID;
+	private $city = false;
+	private $country = false;
+	private $clean_html;
+	private $expire_time = 7200; #seconds
+	private $current_time;
+	private $file_time;
+	private $cached_file;
+	private $type;
+	
+	
+	function __construct($arg_one) { 
+		$this->type = $arg_one;
+	 	$this->set_time();
+	}
+	
+	public function set_time()
+	{
+		$this->current_time = time();
+	}
+	public function set_page($item){
+		$this->p = $item;		
+	}
+	
+	public function set_country_id($item){
+		$this->countryID = $item;		
+	}
+	
+	public function set_city_id($item){
+		$this->cityID = $item;		
+	}
+	
+	public function set_file_time($cached_file){
+		$this->file_time = filemtime($this->cached_file);
+	}
+	
+	
+	
+	public function get_country_id(){
+		return $this->countryID;
+	}
+	
+	public function get_page(){
+		return $this->p;
+	}
+	public function get_city_id(){
+		return $this->cityID;
+	}
+	public function get_file_time(){
+		return $this->file_time;
+	}
+	
+	
+	
+	
+	
+	
+	public function get_html()
+	{
+		$this->parse_current_url();
+		$this->create_target_url();
+		
+		if(!($this->check_if_cached()))
+		{
+			$html = $this->request_html();
+		}
+			
+			return $this->get_content_of_file();
+		
+	}
+	
+	private function get_content_of_file(){
+		$html = file_get_contents($this->cached_file);
+		return $html;
+	}
+	
+		
+	private function parse_current_url(){
+	
+		if(!empty($_GET['p'])){
+			$p = $_GET['p'];	
+			$this->set_page($p);
+		}
+		
+		if(!empty($_GET['countryid'])){
+			$this->country = true;
+			$this->set_country_id($_GET['countryid']);
+		}
+		
+		if(!empty($_GET['city'])){
+			$this->city = true;
+			$this->set_city_id($_GET['city']);
+		}
+	}
+	
+	private function create_target_url(){
+			
+		$countryid = $this->get_country_id();
+		$cityid = $this->get_city_id();
+		
+		if (($this->country) && ($this->city) && ($this->type !="menu")){
+			$this->target_url = "http://akj.org/skins/one/programs.php?countryid=$countryid&city=$cityid";
+		}
+		elseif(($this->country) && !($this->city) && ($this->type !="menu")){	
+			$this->target_url = "http://akj.org/skins/one/programs.php?countryid=$countryid";
+		}
+		else
+		{
+			$this->target_url = "http://akj.org/skins/one/programs.php";
+			$countryid = "programs";
+			$cityid = "menu";
+		}	
+		
+		$this->target_url = str_replace ( ' ', '%20', $this->target_url);
+		$this->set_cached_file_name($countryid,$cityid);
+	
+	
+	}
+	
+	private function set_cached_file_name($countryid, $cityid){
+		$cityid = preg_replace("/[^A-Za-z0-9]/","",$cityid);  
+		$this->cached_file = "CACHE-$countryid$cityid.cache";
+		
+	}
+	
+	
+	
+	private function check_if_cached(){
+			
+
+		if(file_exists($this->cached_file)){
+			$this->set_file_time($this->cached_file);
+			if ($this->current_time - $this->expire_time < $this->file_time){
+				return true;
+			}
+		}
+		else{
+			return false;
+		}
+	}
+	
+	private function request_html(){
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$this->target_url);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_FAILONERROR, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 180);
+		$html = curl_exec($ch);
+		if (!$html) {
+			echo "<br />cURL error number:" .curl_errno($ch);
+			echo "<br />cURL error:" . curl_error($ch);
+			exit;
+		}
+		else{
+			curl_close($ch);
+		}
+		
+		file_put_contents($this->cached_file, $html);	
+	}
+	
+
+	
+	
+
+
+
+
+
+
+}
+
+
+function clean_up_the_html($dirty_html){
+		$dirty_html = $dirty_html;
+		$config = HTMLPurifier_Config::createDefault();
+		$config->set('Core.Encoding', 'UTF-8');
+		$config->set('HTML.Doctype', 'HTML 4.01 Transitional');
+		$config->set('Core.EscapeNonASCIICharacters', 'true');
+		$purifier = new HTMLPurifier($config);
+		$clean_html = $purifier->purify($dirty_html);
+		
+		return $clean_html;
+}
 
 ?> 
