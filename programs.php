@@ -9,7 +9,7 @@
     });
 </script>
 
-<article data-role="content">
+<article data-role="content" data-theme="a">
 <div class="programs">
 <?php
 require_once 'htmlpurifier/library/HTMLPurifier.auto.php';
@@ -56,7 +56,7 @@ $counter = 1;
 
 echo "<form method='get' id='myForm'>"; #window.location='ban.php?product='+this.value"
 echo '<select id="item" name="item" onChange="window.open(this.options[this.selectedIndex].value,\'_top\')">';
-echo '<option value=\"?p=programs\" selected>All International</option>';
+echo '<option value="?p=programs" selected>International</option>';
 $selected = false;
 foreach ($countries as $countryItem)
 {
@@ -100,12 +100,16 @@ echo "</select></form>";
 echo '<ul data-role="listview" data-filter="true">';
 if($city)
 {
+	echo '<div class="programs_city">';
 	parseCity($clean_html);
+	echo '</div>';
 }
 else
 {
-
+	echo '<div class="programs_other">';
 	parseMainAndCountry($clean_html);
+	echo '</div>';
+
 }
 echo '</ul>';
 

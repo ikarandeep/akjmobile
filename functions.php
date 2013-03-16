@@ -23,35 +23,28 @@ foreach($tables as $table)
 {
 	if ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('cellpadding') == "2" && $table->getAttribute('cellspacing') == "0" && $table->getAttribute('width') == "100%")
 	{
-		echo "<li><div class='aSmagam'>";
+		echo "<li><div class='smagamBox'>";
 		$td = $table->getElementsByTagName('td');
 		foreach ($td as $tdItem)
 		{
 			if($tdItem->getAttribute('class') == "Chapter")
 				{
 					$smagamName = $tdItem->nodeValue;
-					#$smagamName = $str_replace(' ', '', $smagamName);
 					$uniqueID = rand();
 					
-					echo "<div class='smagam'><a href='javascript:showonlyone(\"$uniqueID\");'>$smagamName</a></div>";
+					echo "<div class='smagamName'><a href='javascript:showonlyone(\"$uniqueID\");'>$smagamName</a></div>";
 
 				}
 			if($tdItem->getAttribute('bgcolor')=="#EEEEEE" || $tdItem->getAttribute('bgcolor')=="#DDDDDD")
 			{
 				if ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="100")
 				{
-#<a href="#" class="servicesLink">SERVICES</a>
-#<div class="servicesPanel">
-
 				
 					$date = substr($tdItem->nodeValue,3);
 					$date = explode("to", $date);
 					$startDate = $date[0];
 					$endDate = substr($date[1],4);
-					#$str = "&nbsp;";
-					#str_replace("\xc2\xa0",' ',$str);
-					#echo "<div class='date'>$date</div>";
-					echo "<div class='date'>$startDate to $endDate</div>";
+					echo "<div class='smagamDate'>$startDate to $endDate</div>";
 			
 				}
 				
@@ -65,12 +58,9 @@ foreach($tables as $table)
 				
 				elseif ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="150")		
 				{
-					#$contactInfo = $tdItem->nodeValue;
-				echo "<div class='newboxes' id='$uniqueID'><p>";
-
+					echo "<div class='newboxes' id='$uniqueID'><p>";
 					echo DOMinnerHTML($tdItem);
-				#	echo "<br>";
-				echo "</p></div>";
+					echo "</p></div>";
 
 				}		
 			}
@@ -97,7 +87,7 @@ function parseCity($clean_html)
 		if($titleTd->getAttribute('class') == "Chapter")
 		{
 			$smagamName = $titleTd->nodeValue;
-			echo "<li><div class='pageTitle'>$smagamName</a></div>";
+			echo "<li><div class='cityName'>$smagamName</div></li>";
 			
 		}
 	}		
@@ -109,11 +99,17 @@ function parseCity($clean_html)
 		if ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('cellpadding') == "2" && $table->getAttribute('cellspacing') == "0" && $table->getAttribute('width') == "100%")
 		{
 			$td = $table->getElementsByTagName('td');
+				$counter = 0;
 				foreach ($td as $tdItem)
 				{
 					
 					if($tdItem->getAttribute('bgcolor')=="#EEEEEE" || $tdItem->getAttribute('bgcolor')=="#DDDDDD")
-					{
+					{	
+						if($counter == 0)
+						{
+							echo "<li><div class='smagamBox'>";
+						}
+						
 						if ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="100")
 						{	
 							$date = substr($tdItem->nodeValue,3);
@@ -121,27 +117,42 @@ function parseCity($clean_html)
 							$startDate = $date[0];
 							$endDate = substr($date[1],4);
 							$uniqueID = rand();
-							echo "<div class='smagam'><div class='date'><a href='javascript:showonlyone(\"$uniqueID\");'>$startDate to $endDate</a></div></div>";
+							echo "<div class='smagamName'><div class='smagamDate'><a href='javascript:showonlyone(\"$uniqueID\");'>$startDate to $endDate</a></div>";
+							$counter = $counter + 1;				
+						
 					
 						}
 						
 						elseif($tdItem->getAttribute('valign')=="top" && $tdItem->hasAttribute('width')==False)
 						{
-							echo "<div class='newboxes' id='$uniqueID'>";
+							echo "<div class='newboxes' id='$uniqueID'><p>";
 							$smagamType = $tdItem->firstChild->nodeValue;
 							echo DOMinnerHTML($tdItem);
-							echo "</div>";
+							echo "</p></div>";
+							$counter = $counter + 1;				
+						
 						}
 						
 						elseif ($tdItem->getAttribute('valign')=="top" && $tdItem->getAttribute('width')=="150")		
 						{
-							echo "<div class='newboxes' id='$uniqueID'>";
+							echo "<div class='newboxes' id='$uniqueID'><p>";
 							echo DOMinnerHTML($tdItem);
-							echo "</div>";
+							echo "</p></div>";
+							$counter = $counter + 1;				
+						
 		
+						}
+						
+						if($counter == 3)
+						{
+							echo "</div></div></li>";
 						}		
+		
 					}
+	
 				}	
+		
+
 		}
 		elseif ($table->getAttribute('bgcolor') == "#ffcc66" && $table->getAttribute('cellpadding') == "1" && $table->getAttribute('cellspacing') == "0" && $table->getAttribute('width') == "100%")
 		{
@@ -153,13 +164,14 @@ function parseCity($clean_html)
 			else
 			{
 		
-				echo "<div class='aSmagam'>";
+				echo "<li><div class='smagamBox'>";
 				
 				# check to see if it has a child table with cellpadding2
 				
 				$td = $table->getElementsByTagName('td');
 				foreach ($td as $tdItem)
 				{
+					
 					
 					if($tdItem->getAttribute('bgcolor')=="#EEEEEE" || $tdItem->getAttribute('bgcolor')=="#DDDDDD")
 					{
@@ -170,7 +182,7 @@ function parseCity($clean_html)
 							$startDate = $date[0];
 							$endDate = substr($date[1],4);
 							$uniqueID = rand();
-							echo "<div class='smagam'><div class='date'><a href='javascript:showonlyone(\"$uniqueID\");'>$startDate to $endDate</a></div></div>";
+							echo "<div class='smagamName'><div class='smagamDate'><a href='javascript:showonlyone(\"$uniqueID\");'>$startDate to $endDate</a></div>";
 					
 						}
 						
@@ -191,7 +203,7 @@ function parseCity($clean_html)
 						}		
 					}
 				}
-				echo "</div></li>";
+				echo "</div></div></li>";
 			}
 		}
 	}

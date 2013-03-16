@@ -1,0 +1,13 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine on
+RewriteRule ^nynj?$ /?p=programs&countryid=5&city=NY/NJ [R]
+RewriteRule ^toronto?$ /?p=programs&countryid=1&city=Toronto [R]
+#RewriteRule ^about?$ /index.php?p=about [L]
+#RewriteRule ^studio?$ /index.php?p=studio [L]
+#RewriteRule ^services?$ /index.php?p=services [L]
+#RewriteRule ^portfolio?$ /index.php?p=portfolio [L]
+#RewriteRule ^contact?$ /index.php?p=contact [L]
+#RewriteRule ^home?$ /index.php [L]
+
+
+#RewriteRule ^([^/]+)?$ /index.php?p=$1 [L]

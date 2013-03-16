@@ -2,10 +2,15 @@ body{
 background-color: white;
 /*background-color: #22486e;*/
 font-family: 'Titillium Web', sans-serif;
-color: black;
-text-shadow: #ccc 0.1em 0.1em 0.1em;
-
+color: #575757;
+text-shadow: none;
 }
+.ui-btn-up-c{background-color: white;}
+/*colors
+orange: ffcd67;
+blue: #0D367A;
+*/
+
 
 /*begin top bar*/
 .top_bar{
@@ -14,28 +19,15 @@ font-family: 'Fjalla One', sans-serif;
 font-weight: 100;
 font-size:28px;
 letter-spacing: 2px;
-color: #ffcd67;
+color: white;
 padding-top:10px;
 padding-bottom: 10px;
-padding-left: 20px;
-  text-shadow: black 0.05em 0.05em 0.05em;
-
-/*
-margin: 0;
-position: fixed;
-left:0;
-top:0;
-width:100%;
-padding: 10px;
-*/
 }
-
-/*begin menu */
 
 
 /*begin footer*/
 .footer{font-size:10px;
-color: #ccc;
+color: #575757;
 letter-spacing: 2px;
 width:100%;
 margin: 0;
@@ -45,70 +37,144 @@ left: 0;
 padding: 10px;
 }
 
+/* both keertan & programs */
+.programs .cityName{font-size:24px;
+font-family: 'Fjalla One', sans-serif;
+letter-spacing: 1px;
+margin-left: 0px;
+background-color: #ffcd67;
+padding: 10px;
+text-transform: uppercase;
+text-shadow: none;
+color: #0D367A;
+}
 
-a{color: #ffcd67;}
-a:hover{color:white;}
+.ui-btn-up-a {text-shadow: none;
+}
 
 
 
 
-.smagam{font-size: 20px;
+/*begin programs page*/
+
+.smagamBox{
+	width:100%;
+  background-color: #0D367A;
+  padding: 0px;
+}
+
+.smagamName{font-size: 20px;
 font-family: 'Fjalla One', sans-serif;
 letter-spacing: .1px;
 padding-bottom: 10px;
 margin-top: 0px;
-border-top: 2px solid white;
 padding-top: 10px;
 }
 
-.smagam .date a{text-decoration:none;
-padding-bottom:0px;}
-
-.date{font-size: 18px;
-font-family: 'Roboto', sans-serif;
-padding-bottom: 10px;
+.smagamName .ui-link{
+text-transform: uppercase;
+letter-spacing: 1px;
+font-family: 'Fjalla One', sans-serif;
+font-weight: normal;
+background-color: #ffcd67;
+padding: 10px;
+text-decoration: none;
+color: #0D367A;
 }
+.smagamName .ui-link:hover{color:#0D367A;}
+
+.programs_other .smagamDate{font-size: 18px;
+font-family: 'Roboto', sans-serif;
+background-color: #0D367A;
+color: white;
+margin-bottom: 10px;
+padding: 10px;
+}
+
+.programs_city .cityName{background-color: #0D367A;
+color: white;}
+
+.programs_city .smagamDate{font-size: 18px;
+font-family: 'Roboto', sans-serif;
+background-color: #0D367A;
+color: white;
+margin-bottom: 10px;
+}
+
 .newboxes{color: black;
 display: none;
-padding-bottom: 10px;
- }
- 
- .newboxes p{font-size: 14px;
- padding-top: 10px;
- font-weight: normal;
-font-family: 'Titillium Web', sans-serif;}
- 
- .newboxes b{
-font-family: 'Titillium Web', sans-serif;}
- 
- 
- .keertanUrl{
-width: 100%;
-height: 30px;
-font-size: 14px;}
- .keertanUrl a{text-decoration:none;
- }
- 
- /*modifying theme*/
-.ui-body-c .ui-link {
-  /*color: #ffcd67;*/
-  color: #22486e;
-  font-weight: normal;
+padding: 10px;
+background-color: #eee;
 }
-.ui-body-c .ui-link:hover{
-color: #ffcd67;
+ 
+.newboxes p{font-size: 14px;
+padding-top: 10px;
 font-weight: normal;
+font-family: 'Titillium Web', sans-serif;
 }
 
-.ui-body-c .ui-link:visited{
-color: #22486e;
-font-weight: normal;
-}
-.ui-body-c .ui-link:visited:hover{
-color: #ffcd67;
-font-weight: normal;
+
+.newboxes p .ui-link{
+padding: 0px;
+font-size: 14px;
+text-transform: none;
+letter-spacing: 0px;
+color: #0D367A;
+margin-left: 2px;
+margin-right: 2px;
+background: none;}
+ 
+ .newboxes b{
+font-family: 'Titillium Web', sans-serif;
 }
  
+.hidden{display:none;}
+
+/*begin Keertan Page*/
+.keertanPage{
+font-family: 'Fjalla One', sans-serif;
+color: #0D367A;
+}
+.keertanUrl{
+width: 100%;
+height: 30px;
+font-size: 12px;
+letter-spacing: -.5px;
+
+}
+
+
+.program_type{
+font-size: 16px;
+color: #666;
+margin-bottom: 10px;
+}
+
+.program_day{
+font-size:20px;
+background-color: #ffcd67;
+margin-bottom: 5px;
+}
+
+.time{float: left;
+width:24%;
+}
+
+.track{float: left;
+width: 74%;}
+
+.track .ui-link{color: #0D367A;
+text-decoration: none;
+text-shadow:none;
+font-family: 'Roboto', sans-serif;
+
+
+}
+ 
+ /*modifying theme*/
+
+
+
 .ui-li-desc{
 white-space:normal;
 }
@@ -119,7 +185,9 @@ font-family: 'Titillium Web', sans-serif;
 font-size: 30px;
 }
 
+.ui-btn-text{font-size: 10px;}
 
+/*
 .mainMenu {width:300px;
 padding-bottom: 10px;
 text-transform: uppercase;
@@ -127,6 +195,7 @@ font-size:14px;
 letter-spacing: -.5px;
 margin-left: -15px;
 margin-bottom: 10px;}
+
 .mainMenu ul {margin:0;
 padding: 0;
 list-style-type: none;
@@ -136,41 +205,37 @@ padding: 5px;}
 .mainMenu ul li a{text-decoration: none;
 padding: 0px;}
 .mainMenu ul li a:hover{color: white;
-border-bottom: 1px dotted white;}
-/*
-font-family: 'Fjalla One', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Titillium Web', sans-serif;
-*/
+border-bottom: 1px dotted white;}*/
 
-.keertanPage{
-font-family: 'Fjalla One', sans-serif;
-}
-.program_day{
-font-size:20px;
-  background-color: #ffcd67;
-  color: #22486e;
-  margin-bottom: 5px;
-}
 
-.program_type{
-font-size: 16px;
-color: #666;
-margin-bottom: 10px;}
 
-.hidden{display:none;}
+
+
+
+
 
 /*.programs{width: 300px;}*/
 
-.pageTitle{font-size:26px;
-}
-.aSmagam{width:100%;}
 
 
-.time{float: left;
-width:24%;}
-.track{float: left;
-width: 74%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

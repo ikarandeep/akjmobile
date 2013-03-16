@@ -19,11 +19,18 @@ elseif($p == "keertanSoon")
 else
 {
 echo '
-	<article data-role="content">
-		<ul data-role="listview">
+	<article data-role="content" data-theme="a">
+		<center>
+		<img src="home_2.jpg">
+		<h3>Welcome to AKJMobile.org</h3>
+		<p>Get easy access to AKJ.org via this mobile enabled site<p>
+		<p>iOS Users: Save as a bookmark for easy access from your home screen</p>
+		<p>For issues please tweet <a href="http://twitter.com/AKJMobile" target="_blank">@AKJMobile</a></p>
+		</center>
+		<!--<ul data-role="listview">
 			<li><a href="?p=programs"><h1>PROGRAMS</h1></a></li>
 			<li><a href="?p=keertan"><h1>KEERTAN</h1></a></li>
-		</ul>
+		</ul>-->
 	</article>	
 	';
 }
