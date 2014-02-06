@@ -32,11 +32,14 @@ $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
 $config->set('Core.EscapeNonASCIICharacters', 'true');
 $purifier = new HTMLPurifier($config);
 $clean_menu_html = $purifier->purify($dirty_menu_html);
-		
+
+
 $program_menu = new Menu($clean_menu_html);
 $cities = $program_menu->get_cities();
 $countries = $program_menu->get_countries();
 
+$countryid = $menu_html->get_country_id();
+$cityid = $menu_html->get_city_id();
 
 
 $html = new GetHtml("main");
@@ -48,8 +51,7 @@ $config->set('Core.EscapeNonASCIICharacters', 'true');
 $purifier = new HTMLPurifier($config);
 $clean_html = $purifier->purify($dirty_html);
 
-$countryid = $html->get_country_id();
-$cityid = $html->get_city_id();
+
 
 $counter = 1;
 

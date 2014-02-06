@@ -270,12 +270,13 @@ class Menu {
 		$uls = $this->html_file->getElementsByTagName('ul');
 		foreach($uls as $ul)
 		{
+
 			if($ul->getAttribute('class')=="ddsubmenustyle")
 			{
+
 				$lis = $ul->getElementsByTagName('li');
 				foreach($lis as $li)
 				{
-					
 						$as = $li->getElementsByTagName('a');
 						foreach($as as $a)
 						{
@@ -285,6 +286,8 @@ class Menu {
 										$urlArray = explode("=",$url);
 										$idArray = explode("&",$urlArray[1]);
 										$city = $urlArray[2];
+
+
 										$countryID = $idArray[0];
 										$city = str_replace ( '%20', ' ', $city);
 										$temp_array = array("$city" => "$countryID");
@@ -745,11 +748,16 @@ class GetHtml{
 		elseif(($this->country) && !($this->city) && ($this->type !="menu")){	
 			$this->target_url = "http://akj.org/skins/one/programs.php?countryid=$countryid";
 		}
+		elseif(($this->type =="menu")){	
+			$this->target_url = "http://akj.org/skins/one/programs.php?countryid=2";
+			$countryid = "programs";
+			$cityid = "menu";
+		}
 		else
 		{
 			$this->target_url = "http://akj.org/skins/one/programs.php";
 			$countryid = "programs";
-			$cityid = "menu";
+			$cityid = "main";
 		}	
 		
 		$this->target_url = str_replace ( ' ', '%20', $this->target_url);
